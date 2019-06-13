@@ -27,6 +27,12 @@ target 'compoteTestRN' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
 
   # your other libraries will follow here!
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+  pod 'react-native-fast-image', :path => '../node_modules/react-native-fast-image'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'TouchID', :path => '../node_modules/react-native-touch-id'
+  pod 'Google-Mobile-Ads-SDK'
+
 end
 
 # The following is needed to ensure the "archive" step works in XCode.
