@@ -22,7 +22,11 @@ const style = StyleSheet.create({
   signInWrapper: {
     width: '100%',
     height: 40,
-    marginBottom: 30,
+    marginBottom: 20,
+  },
+  signInTouchIDWrapper: {
+    width: '100%',
+    height: 40,
   },
   singUpWrapper: {
     position: 'absolute',

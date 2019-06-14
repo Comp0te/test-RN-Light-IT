@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import style from './style';
 
 import { SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform, Text } from 'react-native';
@@ -7,10 +7,17 @@ import Link from '../../components/Link'
 import { Button } from 'react-native-material-ui';
 
 import navService from '../../services/nav.service';
+import touchIDService from '../../services/touchID.service';
 
 const LoginScreen = ({submitLogin, isLoading}) => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [biometryType, setBiometryType] = useState(null);
+
+  useEffect(() => {
+    touchIDService.isSupported()
+      .then(biometryType => setBiometryType(biometryType))
+  }, []);
 
   const onEnterUserName = useCallback((text) => {
     setUserName(text);
@@ -26,6 +33,13 @@ const LoginScreen = ({submitLogin, isLoading}) => {
       password,
     });
   }, [submitLogin]);
+
+  const onPressSignInWithTouchID = useCallback(() => {
+    touchIDService.authenticate(
+      'For sign in to application',
+      () => navService.navigate('ProductsScreen'),
+    )
+  }, []);
 
   const toRegistrationScreen = () => {
     navService.navigate('RegistrationScreen');
@@ -59,6 +73,16 @@ const LoginScreen = ({submitLogin, isLoading}) => {
               disabled={isLoading}
             />
           </View>
+          {
+            biometryType &&
+            <View style={style.signInTouchIDWrapper}>
+              <Button
+                primary={true}
+                text={`Sign in with ${biometryType}`}
+                onPress={onPressSignInWithTouchID}
+              />
+            </View>
+          }
           <View style={style.singUpWrapper}>
             <Text style={style.text}>
               {'Do not have an account? '.toUpperCase()}
