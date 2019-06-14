@@ -1,5 +1,5 @@
 export const Color = {
-  MAIN: '#860483',
+  MAIN: '#2196F3',
   MAIN_OPACITY: 'rgba(134, 4, 131, 0.3)',
   WHITE: '#FFFFFF',
   GREY: '#BEBEBE',
