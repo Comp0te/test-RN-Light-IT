@@ -1,13 +1,29 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { connect } from 'react-redux';
+import { Actions } from '../../redux/requests/register/AC';
+import { getIsLoading } from '../../redux/requests/register/selectors';
+import RegistrationScreen from './RegistrationScreen'
 
-const RegisterScreen = () => {
+const RegistrationScreenContainer = ({submitRegister, isLoading}) => {
+
   return (
-    <View>
-      <Text>Bla=bla</Text>
-    </View>
+    <RegistrationScreen
+      isLoading={isLoading}
+      submitRegister={submitRegister}
+    />
   );
 };
 
+const mapStateToProps = state => ({
+  isLoading: getIsLoading(state),
+});
 
-export default RegisterScreen;
+const mapDispatchToProps = dispatch => (
+  {
+    submitRegister: (input) => {
+      dispatch(Actions.register(input));
+    },
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationScreenContainer);
