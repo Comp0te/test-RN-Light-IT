@@ -24,6 +24,18 @@ class ApiService {
       JSON.stringify(input)
     );
   }
+
+  getAllProducts() {
+    return this.apisauce.get(
+      'products/',
+    );
+  }
+
+  getAllReviews(productId) {
+    return this.apisauce.get(
+      `reviews/${productId}`,
+    );
+  }
 }
 
 export default new ApiService();
