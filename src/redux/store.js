@@ -6,15 +6,18 @@ import { all } from 'redux-saga/effects';
 import { authReducer } from './auth/reducer';
 import { requestsReducer } from './requests/reducers';
 import { productsReducer } from './products/reducers';
+import { reviewsReducer } from './reviews/reducers';
 
 import { authRootSaga } from './auth/saga';
 import { requestsRootSaga } from './requests/saga';
 import { productsRootSaga } from './products/saga';
+import { reviewsRootSaga } from './reviews/saga';
 
 export const rootReducer = combineReducers({
   auth: authReducer,
   requests: requestsReducer,
   products: productsReducer,
+  reviews: reviewsReducer,
 });
 
 function* rootSaga() {
@@ -22,6 +25,7 @@ function* rootSaga() {
     authRootSaga(),
     requestsRootSaga(),
     productsRootSaga(),
+    reviewsRootSaga(),
   ]);
 }
 
