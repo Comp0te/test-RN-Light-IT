@@ -5,7 +5,7 @@ import { registerRequestRootSaga } from './register/saga';
 import { getAllProductsRequestRootSaga } from './getAllProducts/saga';
 import { getAllReviewsRequestRootSaga } from './getAllReviews/saga';
 
-export function * rootRequestsSaga() {
+export function * requestsRootSaga() {
   yield all([
     loginRequestRootSaga(),
     registerRequestRootSaga(),
