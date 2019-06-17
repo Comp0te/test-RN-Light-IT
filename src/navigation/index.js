@@ -1,28 +1,17 @@
 import React from 'react';
 import { View } from 'react-native';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import navService from '../services/nav.service';
 
-import LoginScreen from '../screens/LoginScreen';
-import RegistrationScreen from '../screens/RegistrationScreen';
-import ProductsScreen from '../screens/ProductsScreen';
+import authNavigator from './auth.navigator'
+import mainNavigator from './main.navigator'
 
-const Navigator = createStackNavigator({
-  LoginScreen: {
-    screen: LoginScreen,
-    navigationOptions: navService.navigationOptions('Sing In'),
-  },
-  RegistrationScreen: {
-    screen: RegistrationScreen,
-    navigationOptions: navService.navigationOptions('Registration'),
-  },
-    ProductsScreen: {
-    screen: ProductsScreen,
-    navigationOptions: navService.navigationOptions('Available products'),
-  },
+const Navigator = createSwitchNavigator({
+  authNavigator,
+  mainNavigator,
 }, {
-  initialRouteName: 'LoginScreen',
+  initialRouteName: 'authNavigator',
 });
 
 const NavigatorContainer = createAppContainer(Navigator);
