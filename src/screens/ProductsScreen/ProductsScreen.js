@@ -5,7 +5,14 @@ import { SafeAreaView, View } from 'react-native';
 import ProductsList from '../../components/ProductsList';
 import Spinner from '../../components/Spinner';
 
-const ProductsScreen = ({productsIds, isLoadingProducts, getAllProducts}) => {
+const ProductsScreen = (
+  {
+    productsIds,
+    isLoadingProducts,
+    getAllProducts,
+    productsEntities,
+  },
+) => {
 
   useEffect(() => {
     getAllProducts();
@@ -17,7 +24,10 @@ const ProductsScreen = ({productsIds, isLoadingProducts, getAllProducts}) => {
         {
           isLoadingProducts ?
             <Spinner/> :
-            <ProductsList productsIds={productsIds} />
+            <ProductsList
+              productsIds={productsIds}
+              productsEntities={productsEntities}
+            />
         }
       </View>
     </SafeAreaView>

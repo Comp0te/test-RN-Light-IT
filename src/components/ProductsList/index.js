@@ -6,11 +6,11 @@ import { View } from 'react-native';
 
 import ProductItem from '../ProductItem';
 
-const ProductsList = ({productsIds}) => {
-  const productsList = productsIds.map(productId => (
+const ProductsList = ({productsIds, productsEntities}) => {
+  const productsList = productsIds.map((productId, index) => (
       <ProductItem
         productId={productId}
-        tabLabel={productId}
+        tabLabel={productsEntities?.[productId]?.title ?? `Tab #${index + 1}`}
         key={productId}
       />
     ));
