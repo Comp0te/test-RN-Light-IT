@@ -15,7 +15,6 @@ class TouchIDService {
       return this._biometryType;
     } catch (e) {
       this._error = e;
-      console.log(e.message);
     }
   }
 
@@ -31,12 +30,17 @@ class TouchIDService {
     try {
       await TouchID.authenticate(reason, {
         unifiedErrors: true,
+        title: 'Authentication Required',
+        imageColor: '#e00606',
+        imageErrorColor: '#ff0000',
+        sensorDescription: 'Touch sensor',
+        sensorErrorDescription: 'Failed',
+        cancelText: 'Cancel',
       });
 
       successCallback();
     } catch (e) {
       this._error = e;
-      console.log(e.message);
     }
   }
 }
