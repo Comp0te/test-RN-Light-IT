@@ -1,9 +1,12 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, fork } from 'redux-saga/effects';
 import { Alert } from 'react-native';
 import * as authAC from './AC';
 import { requestsAC } from '../requests/AC';
 
-export function* setIsAuthUserSaga() {
+import navService from '../../services/nav.service';
+
+export function* authFlowSaga() {
+  yield fork([navService, navService.navigate], 'ProductsScreen');
   yield put(authAC.Actions.setIsAuthUser(true));
 }
 
@@ -21,7 +24,7 @@ export function* authRootSaga() {
   yield takeEvery([
     requestsAC.login.ActionTypes.LOGIN_REQUEST_SUCCESS,
     requestsAC.register.ActionTypes.REGISTER_REQUEST_SUCCESS,
-  ], setIsAuthUserSaga);
+  ], authFlowSaga);
 
   yield takeEvery([
     requestsAC.register.ActionTypes.REGISTER_REQUEST_FAIL,
