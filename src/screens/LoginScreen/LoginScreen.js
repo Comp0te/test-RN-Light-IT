@@ -78,7 +78,7 @@ const LoginScreen = ({submitLogin, isLoading}) => {
             <View style={style.signInTouchIDWrapper}>
               <Button
                 primary={true}
-                text={`Sign in with ${biometryType}`}
+                text={`Sign in with ${Platform.OS === 'android' ? 'Touch' : biometryType}`}
                 onPress={onPressSignInWithTouchID}
               />
             </View>
