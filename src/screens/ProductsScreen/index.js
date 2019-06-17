@@ -1,13 +1,34 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { connect } from 'react-redux';
 
-const ProductsScreen = () => {
+import ProductsScreen from './ProductsScreen';
+
+import { getIsLoading as getIsLoadingAllProducts } from '../../redux/requests/getAllProducts/selectors';
+import { getProductsAllIds } from '../../redux/products/selectors';
+import { requestsAC } from '../../redux/requests/AC';
+
+const mapStateToProps = state => ({
+  isLoadingProducts: getIsLoadingAllProducts(state),
+  productsIds: getProductsAllIds(state),
+});
+
+const mapDispatchToProps = dispatch => (
+  {
+    getAllProducts: () => {
+      dispatch(requestsAC.getAllProducts.Actions.getAllProducts());
+    },
+  }
+);
+
+const ProductsScreenContainer = ({productsIds, isLoadingProducts, getAllProducts}) => {
+
   return (
-    <View>
-      <Text>Bla=blaasdfl;jkadfsl;jkadfs;lk</Text>
-    </View>
+    <ProductsScreen
+      productsIds={productsIds}
+      isLoadingProducts={isLoadingProducts}
+      getAllProducts={getAllProducts}
+    />
   );
 };
 
-
-export default ProductsScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsScreenContainer);
