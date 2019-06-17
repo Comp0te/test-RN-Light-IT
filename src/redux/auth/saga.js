@@ -9,11 +9,12 @@ export function* setIsAuthUserSaga() {
 
 export function* invalidTokenSaga(action) {
   const {errors} = action.payload;
-  if (errors.status === 401) {
-    yield put(authAC.Actions.logout());
-  }
 
-  Alert.alert(errors);
+  if (errors && errors.status === 401) {
+    yield put(authAC.Actions.logout());
+  } else if (errors) {
+    Alert.alert(errors);
+  }
 }
 
 export function* authRootSaga() {
