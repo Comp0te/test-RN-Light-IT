@@ -7,17 +7,20 @@ import { authReducer } from './auth/reducer';
 import { requestsReducer } from './requests/reducers';
 import { productsReducer } from './products/reducers';
 import { reviewsReducer } from './reviews/reducers';
+import { usersReducer } from './users/reducers';
 
 import { authRootSaga } from './auth/saga';
 import { requestsRootSaga } from './requests/saga';
 import { productsRootSaga } from './products/saga';
 import { reviewsRootSaga } from './reviews/saga';
+import { usersRootSaga } from './users/saga';
 
 export const rootReducer = combineReducers({
   auth: authReducer,
   requests: requestsReducer,
   products: productsReducer,
   reviews: reviewsReducer,
+  users: usersReducer,
 });
 
 function* rootSaga() {
@@ -26,6 +29,7 @@ function* rootSaga() {
     requestsRootSaga(),
     productsRootSaga(),
     reviewsRootSaga(),
+    usersRootSaga(),
   ]);
 }
 
