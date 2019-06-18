@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import style from './style';
+import { withNavigation } from 'react-navigation';
 import { staticEndpoint } from '../../utils/constants';
 
 import { Text, View } from 'react-native'
@@ -12,8 +13,18 @@ const ProductsItem = (
     reviewsIds,
     isLoadingReviews,
     getAllReviews,
+    navigation,
+    isActive,
   },
 ) => {
+
+  useEffect(() => {
+    navigation.setParams({
+      title: product.title,
+      onPressSave: () => console.log(`saved ${product.title}`),
+      isLoadingReviews,
+    })
+  }, [product, isActive, isLoadingReviews]);
 
   const fetchReviewsList = useCallback(() => {
     if (product) {
@@ -52,4 +63,4 @@ const ProductsItem = (
   );
 };
 
-export default React.memo(ProductsItem);
+export default withNavigation(ProductsItem);

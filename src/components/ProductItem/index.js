@@ -28,6 +28,7 @@ const ProductsItemContainer = (
     reviewsIds,
     isLoadingReviews,
     getAllReviews,
+    ...rest,
   },
 ) => {
 
@@ -37,6 +38,7 @@ const ProductsItemContainer = (
       reviewsIds={reviewsIds}
       isLoadingReviews={isLoadingReviews}
       getAllReviews={getAllReviews}
+      {...rest}
     />
   );
 };
