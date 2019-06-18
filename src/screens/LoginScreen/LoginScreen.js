@@ -32,7 +32,7 @@ const LoginScreen = ({submitLogin, isLoading}) => {
       username,
       password,
     });
-  }, [submitLogin]);
+  }, [submitLogin, username, password]);
 
   const onPressSignInWithTouchID = useCallback(() => {
     touchIDService.authenticate(
