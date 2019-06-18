@@ -6,14 +6,14 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import navService from '../services/nav.service';
 import {Actions as realmActions} from '../redux/realm/AC';
 
-import authNavigator from './auth.navigator'
-import mainNavigator from './main.navigator'
+import AuthNavigator from './auth.navigator'
+import DrawerNavigator from './drawerNavigator'
 
 const Navigator = createSwitchNavigator({
-  authNavigator,
-  mainNavigator,
+  AuthNavigator,
+  DrawerNavigator,
 }, {
-  initialRouteName: 'authNavigator',
+  initialRouteName: 'DrawerNavigator',
 });
 
 const NavigatorContainer = createAppContainer(Navigator);

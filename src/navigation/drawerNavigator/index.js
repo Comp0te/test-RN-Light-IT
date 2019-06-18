@@ -1,29 +1,35 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
 import { createDrawerNavigator } from 'react-navigation';
-import { Color } from '../Themes/colors';
+import { Color } from '../../Themes/colors';
 import { Icon } from 'react-native-material-ui';
 
-import navService from '../services/nav.service';
+import ProductsNavigator from './products.navigator';
+import SavedProductsNavigator from './saved.products.navigator';
+import SettingsNavigator from './settings.navigator';
 
-import ProductsScreen from '../screens/ProductsScreen';
-
-const mainNavigator = createDrawerNavigator({
-  ProductsScreen: {
-    screen: ProductsScreen,
-    navigationOptions: navService.navigationOptions('Available products'),
+const DrawerNavigator = createDrawerNavigator({
+  ProductsNavigator: {
+    screen: ProductsNavigator,
+    navigationOptions: {
+      drawerLabel: 'Products',
+    }
   },
-  SavedProductsScreen: {
-    screen: ProductsScreen,
-    navigationOptions: navService.navigationOptions('Saved products'),
+  SavedProductsNavigator: {
+    screen: SavedProductsNavigator,
+    navigationOptions: {
+      drawerLabel: 'Saved products',
+    }
   },
-  SettingsScreen: {
-    screen: ProductsScreen,
-    navigationOptions: navService.navigationOptions('Settings'),
+  SettingsNavigator: {
+    screen: SettingsNavigator,
+    navigationOptions: {
+      drawerLabel: 'Settings',
+    }
   },
 }, {
   drawerWidth: Dimensions.get('window').width * 0.8,
-  initialRouteName: 'ProductsScreen',
+  initialRouteName: 'ProductsNavigator',
   contentOptions: {
     activeTintColor: Color.MAIN,
     inactiveTintColor: Color.GREY,
@@ -32,7 +38,7 @@ const mainNavigator = createDrawerNavigator({
     drawerIcon: ({tintColor}) => {
       const {routeName} = navigation.state;
 
-      if (routeName === 'ProductsScreen') {
+      if (routeName === 'ProductsNavigator') {
         return (
           <Icon
             name='laptop'
@@ -40,7 +46,7 @@ const mainNavigator = createDrawerNavigator({
             color={tintColor ? tintColor : undefined}
           />
         );
-      } else if (routeName === 'SavedProductsScreen') {
+      } else if (routeName === 'SavedProductsNavigator') {
         return (
           <Icon
             name='shopping-cart'
@@ -61,4 +67,4 @@ const mainNavigator = createDrawerNavigator({
   }),
 });
 
-export default mainNavigator;
+export default DrawerNavigator;
