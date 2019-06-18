@@ -5,9 +5,9 @@ import { requestsAC } from '../requests/AC';
 
 import navService from '../../services/nav.service';
 
-export function* authFlowSaga() {
+export function* authFlowSaga({payload}) {
   yield fork([navService, navService.navigate], 'ProductsScreen');
-  yield put(authAC.Actions.setIsAuthUser(true));
+  yield put(authAC.Actions.setToken(payload.data.token));
 }
 
 export function* invalidTokenSaga(action) {

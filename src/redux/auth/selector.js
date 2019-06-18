@@ -1,1 +1,1 @@
-export const getIsAuthUser = state => state.auth.isAuthUser;
+export const getToken = state => state.auth.token;
