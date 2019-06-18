@@ -7,6 +7,7 @@ import { getIsLoading } from '../../redux/requests/getAllReviews/selectors';
 
 import ProductItem from './ProductItem';
 import { requestsAC } from "../../redux/requests/AC";
+import { Actions as realmActions } from "../../redux/realm/AC";
 
 const mapStateToProps = (state, props) => ({
   product: getProductByIdFromProps(state, props),
@@ -19,6 +20,9 @@ const mapDispatchToProps = dispatch => (
     getAllReviews: (productId) => {
       dispatch(requestsAC.getAllReviews.Actions.getAllReviews(productId));
     },
+    saveProductWithReviews: (productId) => {
+      dispatch(realmActions.saveProductWithReviews(productId));
+    },
   }
 );
 
@@ -28,6 +32,7 @@ const ProductsItemContainer = (
     reviewsIds,
     isLoadingReviews,
     getAllReviews,
+    saveProductWithReviews,
     ...rest,
   },
 ) => {
@@ -38,6 +43,7 @@ const ProductsItemContainer = (
       reviewsIds={reviewsIds}
       isLoadingReviews={isLoadingReviews}
       getAllReviews={getAllReviews}
+      saveProductWithReviews={saveProductWithReviews}
       {...rest}
     />
   );

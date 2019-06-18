@@ -13,15 +13,20 @@ const ProductsItem = (
     reviewsIds,
     isLoadingReviews,
     getAllReviews,
+    saveProductWithReviews,
     navigation,
     isActive,
   },
 ) => {
 
+  const onPressSave = useCallback(() => {
+    saveProductWithReviews(product.id)
+  },[product]);
+
   useEffect(() => {
     navigation.setParams({
       title: product.title,
-      onPressSave: () => console.log(`saved ${product.title}`),
+      onPressSave,
       isLoadingReviews,
     })
   }, [product, isActive, isLoadingReviews]);
