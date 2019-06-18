@@ -14,3 +14,5 @@ export const getProductByIdFromProps = createSelector(
     return productsEntities?.[productId];
   },
 );
+
+export const getProductById = (state, productId) => state.products.entities[productId];

@@ -32,3 +32,18 @@ export const getReviewsIdsByProductIdFromProps = createSelector(
     }, []);
   },
 );
+
+export const getReviewsByProductId = (state, productId) => {
+  const reviewsIds = getReviewsAllIds(state);
+  const reviewsEntities = getReviewsEntities(state);
+
+  return reviewsIds.reduce((acc, cur) => {
+    const curReview = reviewsEntities[cur];
+
+    if (curReview.product === +productId) {
+      return acc.concat(curReview);
+    }
+
+    return acc;
+  }, []);
+};
