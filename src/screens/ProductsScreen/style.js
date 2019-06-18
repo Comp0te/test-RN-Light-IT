@@ -8,8 +8,6 @@ const style = StyleSheet.create({
   root: {
     flex: 1,
     paddingTop: 59,
-    paddingLeft: 20,
-    paddingRight: 20,
     backgroundColor: Color.WHITE,
   },
 });

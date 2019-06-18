@@ -3,10 +3,11 @@ import { StyleSheet } from 'react-native';
 const style = StyleSheet.create({
   root: {
     flex: 1,
-    width: '100%',
   },
-  flatList: {
+  tabView: {
     flex: 1,
+    paddingLeft: 0,
+    paddingRight: 0,
   },
 });
 

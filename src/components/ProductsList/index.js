@@ -19,7 +19,7 @@ const ProductsList = ({productsIds, productsEntities}) => {
     <View style={style.root}>
       {
         !!productsIds.length &&
-        <ScrollableTabView>
+        <ScrollableTabView style={style.tabView}>
           {productsList}
         </ScrollableTabView>
       }
