@@ -1,5 +1,7 @@
+export const AUTH_SCHEMA_NAME = 'Auth';
+
 export const AuthSchema = {
-    name: 'Auth',
+    name: AUTH_SCHEMA_NAME,
     properties: {
         token:  'string',
         userId: 'string?',

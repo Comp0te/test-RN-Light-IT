@@ -1,5 +1,7 @@
+export const REVIEW_SCHEMA_NAME = 'Review';
+
 export const ReviewSchema = {
-    name: 'Review',
+    name: REVIEW_SCHEMA_NAME,
     primaryKey: 'id',
     properties: {
         id: 'int',

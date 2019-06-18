@@ -1,5 +1,7 @@
+export const PRODUCT_SCHEMA_NAME = 'Product';
+
 export const ProductSchema = {
-    name: 'Product',
+    name: PRODUCT_SCHEMA_NAME,
     primaryKey: 'id',
     properties: {
         id: 'int',

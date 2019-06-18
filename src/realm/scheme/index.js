@@ -1,7 +1,7 @@
-import { AuthSchema } from './auth.schema'
-import { ProductSchema } from './product.schema'
-import { ReviewSchema } from './review.schema'
-import { UserSchema } from './user.schema'
+import { AuthSchema, AUTH_SCHEMA_NAME } from './auth.schema'
+import { ProductSchema, PRODUCT_SCHEMA_NAME } from './product.schema'
+import { ReviewSchema, REVIEW_SCHEMA_NAME } from './review.schema'
+import { UserSchema, USER_SCHEMA_NAME } from './user.schema'
 
 export const Scheme = [
   AuthSchema,
@@ -9,3 +9,10 @@ export const Scheme = [
   ReviewSchema,
   UserSchema,
 ];
+
+export const SchemaName = {
+  AUTH: AUTH_SCHEMA_NAME,
+  PRODUCT: PRODUCT_SCHEMA_NAME,
+  REVIEW: REVIEW_SCHEMA_NAME,
+  USER: USER_SCHEMA_NAME,
+};
