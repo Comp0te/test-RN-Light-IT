@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux'
 import { View } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import navService from '../services/nav.service';
+import {Actions as realmActions} from '../redux/realm/AC';
 
 import authNavigator from './auth.navigator'
 import mainNavigator from './main.navigator'
@@ -16,10 +18,14 @@ const Navigator = createSwitchNavigator({
 
 const NavigatorContainer = createAppContainer(Navigator);
 
-const AppNavigator = () => {
+const AppNavigator = ({dispatch}) => {
   const setNavigator = navigatorRef => {
     navService.navigator = navigatorRef;
   };
+
+  useEffect(() => {
+    dispatch(realmActions.rehydrateStore())
+  }, []);
 
   return (
     <View style={{flex: 1}}>
@@ -28,4 +34,4 @@ const AppNavigator = () => {
   );
 };
 
-export default AppNavigator;
+export default connect()(AppNavigator);
