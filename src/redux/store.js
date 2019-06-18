@@ -14,6 +14,7 @@ import { requestsRootSaga } from './requests/saga';
 import { productsRootSaga } from './products/saga';
 import { reviewsRootSaga } from './reviews/saga';
 import { usersRootSaga } from './users/saga';
+import { realmRootSaga } from './realm/saga';
 
 export const rootReducer = combineReducers({
   auth: authReducer,
@@ -30,6 +31,7 @@ function* rootSaga() {
     productsRootSaga(),
     reviewsRootSaga(),
     usersRootSaga(),
+    realmRootSaga(),
   ]);
 }
 
