@@ -1,7 +1,11 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
+import { put, takeEvery, call, select, fork } from 'redux-saga/effects';
 import * as realmAC from './AC';
 import * as authAC from '../auth/AC';
 import { requestsAC } from '../requests/AC';
+
+import { getProductById } from '../products/selectors';
+import { getReviewsByProductId } from '../reviews/selectors';
+import { getUsersByProductIdAndReviews } from '../users/selectors';
 
 import realmService from '../../services/realm.service';
 
@@ -26,6 +30,34 @@ export function* writeTokenToRealmSaga({payload}) {
   );
 }
 
+export function* writeProductWithReviewsRealmSaga({payload}) {
+  const product = yield select(getProductById, payload.productId);
+  const reviews = yield select(getReviewsByProductId, payload.productId);
+  const users = yield select(getUsersByProductIdAndReviews, payload.productId, reviews);
+
+  yield fork(
+    [realmService, realmService.write],
+    realmService.SchemaName.PRODUCT,
+    product,
+  );
+
+  for (let i = 0; i < reviews.length; i++) {
+    yield fork(
+      [realmService, realmService.write],
+      realmService.SchemaName.REVIEW,
+      reviews[i],
+    );
+  }
+
+  for (let i = 0; i < users.length; i++) {
+    yield fork(
+      [realmService, realmService.write],
+      realmService.SchemaName.USER,
+      users[i],
+    );
+  }
+}
+
 export function* realmRootSaga() {
   yield takeEvery([
     realmAC.ActionTypes.REHYDRATE_STORE,
@@ -35,4 +67,8 @@ export function* realmRootSaga() {
     requestsAC.login.ActionTypes.LOGIN_REQUEST_SUCCESS,
     requestsAC.register.ActionTypes.REGISTER_REQUEST_SUCCESS,
   ], writeTokenToRealmSaga);
+
+  yield takeEvery([
+    realmAC.ActionTypes.SAVE_PRODUCT_WITH_REVIEWS
+  ], writeProductWithReviewsRealmSaga)
 }
