@@ -43,7 +43,9 @@ class RealmService {
 
   async delete(entityForDelete) {
     try {
-      return await this._realm.delete(entityForDelete)
+      return await this._realm.write(() => {
+        this._realm.delete(entityForDelete)
+      })
     } catch (e) {
       console.log('delete error - ', e)
     }
