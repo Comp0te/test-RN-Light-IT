@@ -1,6 +1,7 @@
 import { put, takeEvery, call, select, fork } from 'redux-saga/effects';
 import * as realmAC from './AC';
 import * as authAC from '../auth/AC';
+import * as settingsAC from '../settings/AC';
 import { requestsAC } from '../requests/AC';
 
 import { getProductById } from '../products/selectors';
@@ -58,6 +59,28 @@ export function* writeProductWithReviewsRealmSaga({payload}) {
   }
 }
 
+export function* writeLanguageRealmSaga({payload}) {
+  yield call(
+    [realmService, realmService.write],
+    realmService.SchemaName.SETTINGS,
+    {
+      id: realmService.SchemaName.SETTINGS,
+      language: payload.language,
+    },
+  );
+}
+
+export function* writeIsTouchIDAuthRealmSaga({payload}) {
+  yield call(
+    [realmService, realmService.write],
+    realmService.SchemaName.SETTINGS,
+    {
+      id: realmService.SchemaName.SETTINGS,
+      isTouchIDAuth: payload.isEnabled,
+    },
+  );
+}
+
 export function* realmRootSaga() {
   yield takeEvery([
     realmAC.ActionTypes.REHYDRATE_STORE,
@@ -70,5 +93,13 @@ export function* realmRootSaga() {
 
   yield takeEvery([
     realmAC.ActionTypes.SAVE_PRODUCT_WITH_REVIEWS
-  ], writeProductWithReviewsRealmSaga)
+  ], writeProductWithReviewsRealmSaga);
+
+  yield takeEvery([
+    settingsAC.ActionTypes.SET_LANGUAGE,
+  ], writeLanguageRealmSaga);
+
+  yield takeEvery([
+    settingsAC.ActionTypes.SET_IS_TOUCH_ID_AUTH,
+  ], writeIsTouchIDAuthRealmSaga);
 }

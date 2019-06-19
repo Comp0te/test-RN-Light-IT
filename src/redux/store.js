@@ -8,6 +8,7 @@ import { requestsReducer } from './requests/reducers';
 import { productsReducer } from './products/reducers';
 import { reviewsReducer } from './reviews/reducers';
 import { usersReducer } from './users/reducers';
+import { settingsReducer } from './settings/reducers';
 
 import { authRootSaga } from './auth/saga';
 import { requestsRootSaga } from './requests/saga';
@@ -22,6 +23,7 @@ export const rootReducer = combineReducers({
   products: productsReducer,
   reviews: reviewsReducer,
   users: usersReducer,
+  settings: settingsReducer,
 });
 
 function* rootSaga() {
