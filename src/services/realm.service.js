@@ -50,6 +50,16 @@ class RealmService {
       console.log('delete error - ', e)
     }
   }
+
+  async deleteAll() {
+    try {
+      return await this._realm.write(() => {
+        this._realm.deleteAll();
+      })
+    } catch (e) {
+      console.log('delete All error - ', e)
+    }
+  }
 }
 
 export default new RealmService();

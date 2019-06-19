@@ -81,6 +81,12 @@ export function* writeIsTouchIDAuthRealmSaga({payload}) {
   );
 }
 
+export function* deleteAllRealmDataSaga() {
+  yield call(
+    [realmService, realmService.deleteAll],
+  );
+}
+
 export function* realmRootSaga() {
   yield takeEvery([
     realmAC.ActionTypes.REHYDRATE_STORE,
@@ -102,4 +108,8 @@ export function* realmRootSaga() {
   yield takeEvery([
     settingsAC.ActionTypes.SET_IS_TOUCH_ID_AUTH,
   ], writeIsTouchIDAuthRealmSaga);
+
+  yield takeEvery([
+    authAC.ActionTypes.AUTH_LOGOUT,
+  ], deleteAllRealmDataSaga);
 }
