@@ -10,10 +10,7 @@ const SavedProductsList = ({products, onRefresh, isFetchingProducts}) => {
 
   const renderItem = ({item}) => {
     return (
-      <SavedProductItem
-        title={item.title}
-        img={item.img}
-      />
+      <SavedProductItem product={item}/>
     );
   };
 
