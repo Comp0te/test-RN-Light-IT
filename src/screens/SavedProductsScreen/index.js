@@ -4,7 +4,7 @@ import SavedProductsScreen from './SavedProductsScreen';
 
 import realmService from '../../services/realm.service';
 
-const SavedProductsScreenContainer = () => {
+const SavedProductsScreenContainer = ({navigation}) => {
   const [products, setProducts] = useState(null);
   const [isFetchingProducts, setIsFetchingProducts] = useState(false);
 
@@ -18,7 +18,10 @@ const SavedProductsScreenContainer = () => {
   }, []);
 
   useEffect(() => {
+    const focusListener = navigation.addListener('willFocus', fetchProductsFromRealm);
     fetchProductsFromRealm();
+
+    return () => focusListener.remove();
   }, [fetchProductsFromRealm]);
 
   return (
