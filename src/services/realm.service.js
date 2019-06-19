@@ -17,8 +17,16 @@ class RealmService {
     }
   }
 
-  async read(schemaName) {
+  get realm() {
+    return this._realm;
+  }
+
+  async read(schemaName, filterQuery) {
     try {
+      if (filterQuery) {
+        return await this._realm.objects(schemaName).filtered(filterQuery)
+      }
+
       return await this._realm.objects(schemaName)
     } catch (e) {
       console.log('read error - ', e)
