@@ -1,10 +1,11 @@
 import { createStackNavigator } from "react-navigation";
-import ProductsScreen from "../../screens/ProductsScreen";
 import navService from "../../services/nav.service";
+
+import SettingsScreen from "../../screens/SettingsScreen";
 
 const SettingsNavigator = createStackNavigator({
   SettingsScreen: {
-    screen: ProductsScreen,
+    screen: SettingsScreen,
     navigationOptions: navService.navigationOptions('Settings'),
   },
 }, {
