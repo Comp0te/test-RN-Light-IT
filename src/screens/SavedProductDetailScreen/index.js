@@ -33,6 +33,7 @@ const SavedProductDetailScreenContainer = ({navigation}) => {
       })
       .then(() => realmService.read(realmService.SchemaName.REVIEW, `product == ${product.id}`))
       .then(result => realmService.delete(result))
+    // TODO: Possible Unhandled Promise Rejection (id: 0): Error: Accessing object of type Product which has been invalidated or deleted
   },[product]);
 
   useEffect(() => {
