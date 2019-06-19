@@ -1,10 +1,11 @@
 import { createStackNavigator } from "react-navigation";
-import ProductsScreen from "../../screens/ProductsScreen";
 import navService from "../../services/nav.service";
+
+import SavedProductsScreen from "../../screens/SavedProductsScreen";
 
 const SavedProductsNavigator = createStackNavigator({
   SavedProductsScreen: {
-    screen: ProductsScreen,
+    screen: SavedProductsScreen,
     navigationOptions: navService.navigationOptions('Saved products'),
   },
 }, {
