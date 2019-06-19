@@ -22,6 +22,7 @@ const ReviewsItem = ({username, text, rate}) => {
 
   return (
     <ListItem
+      numberOfLines={3}
       leftElement='comment'
       centerElement={{
         primaryText: username,

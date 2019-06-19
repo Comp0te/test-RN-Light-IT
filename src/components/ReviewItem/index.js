@@ -20,7 +20,6 @@ const ReviewItemContainer = ({review, user}) => {
 
   return (
     <ReviewItem
-      numberOfLines={3}
       username={user.username}
       text={review.text}
       rate={review.rate}
