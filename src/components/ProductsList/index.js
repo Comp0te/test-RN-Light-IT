@@ -26,6 +26,7 @@ const ProductsList = ({productsIds, productsEntities}) => {
       {
         !!productsIds.length &&
         <ScrollableTabView
+          locked={true}
           style={style.tabView}
           onChangeTab={onChangeTab}
         >
