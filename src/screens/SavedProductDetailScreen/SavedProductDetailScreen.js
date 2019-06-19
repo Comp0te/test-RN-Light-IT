@@ -28,6 +28,7 @@ const SavedProductDetailScreen = (
   };
 
   const imageUri = `${staticEndpoint}${product.img}`;
+
   return (
     <SafeAreaView style={style.safeArea}>
       <View style={style.root}>

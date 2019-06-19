@@ -17,7 +17,7 @@ const ProductsNavigator = createStackNavigator({
         headerRight: (
           !!onPressSave && !isLoadingReviews &&
           <Button
-            primaty={true}
+            primary={true}
             text='Save'
             onPress={onPressSave}
           />

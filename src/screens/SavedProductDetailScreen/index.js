@@ -25,6 +25,23 @@ const SavedProductDetailScreenContainer = ({navigation}) => {
     fetchReviewsFromRealm();
   }, [fetchReviewsFromRealm]);
 
+  const onPressDelete = useCallback(() => {
+    navigation.goBack();
+    realmService.read(realmService.SchemaName.PRODUCT, `id == ${product.id}`)
+      .then(result => {
+        return realmService.delete(result)
+      })
+      .then(() => realmService.read(realmService.SchemaName.REVIEW, `product == ${product.id}`))
+      .then(result => realmService.delete(result))
+  },[product]);
+
+  useEffect(() => {
+    navigation.setParams({
+      title: product.title,
+      onPressDelete,
+    })
+  }, [product, onPressDelete]);
+
   return (
     <SavedProductDetailScreen
       product={product}
