@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "815708678516",
+    "firebase_url": "https://rn-test-78699.firebaseio.com",
+    "project_id": "rn-test-78699",
+    "storage_bucket": "rn-test-78699.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815708678516:android:1660d00186f9ed9c",
+        "android_client_info": {
+          "package_name": "com.compotetestrn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815708678516-6qfs7klh7eurl8og0s4pdo9gbaskojcj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA58ZXq0tHXkClzNgfPonHokEQXOyONF9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815708678516-6qfs7klh7eurl8og0s4pdo9gbaskojcj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "815708678516-jqmj9jncml9int8kcqmlu5fadvrra276.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.compoteTestRN"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
