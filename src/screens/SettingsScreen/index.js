@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Actions as authActions } from '../../redux/auth/AC';
 import { Actions as settingsActions } from '../../redux/settings/AC';
@@ -14,14 +14,28 @@ const SettingsScreenContainer = (
     setIsTouchIDAuth,
   },
 ) => {
+  const languagesArray = ["EN", "RU"];
+
+  const handleLanguageChange = useCallback((index) => {
+    setLanguage(languagesArray[index]);
+  }, []);
+
+  const handleIsTouchIDAuthChange = useCallback((value) => {
+    setIsTouchIDAuth(value);
+  }, []);
+
+  const onPressLogOut = useCallback(() => {
+    logout();
+  }, []);
 
   return (
     <SettingsScreen
+      languagesArray={languagesArray}
       language={language}
       isTouchIDAuth={isTouchIDAuth}
-      logout={logout}
-      setLanguage={setLanguage}
-      setIsTouchIDAuth={setIsTouchIDAuth}
+      handleLanguageChange={handleLanguageChange}
+      handleIsTouchIDAuthChange={handleIsTouchIDAuthChange}
+      onPressLogOut={onPressLogOut}
     />
   );
 };

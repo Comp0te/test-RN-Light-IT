@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import style from './style';
 import { Color } from '../../Themes/colors'
 
@@ -8,26 +8,14 @@ import SegmentedControlTab from "react-native-segmented-control-tab";
 
 const SettingsScreen = (
   {
+    languagesArray,
     language,
     isTouchIDAuth,
-    logout,
-    setLanguage,
-    setIsTouchIDAuth,
-  }
-  ) => {
-  const languagesArray = ["EN", "RU"];
-
-  const handleIndexChange = useCallback((index) => {
-    setLanguage(languagesArray[index]);
-  }, []);
-
-  const handleSwitchChange = useCallback((value) => {
-    setIsTouchIDAuth(value);
-  }, []);
-
-  const onPressLogOut = useCallback(() => {
-    logout();
-  }, []);
+    handleLanguageChange,
+    handleIsTouchIDAuthChange,
+    onPressLogOut,
+  },
+) => {
 
   return (
     <SafeAreaView style={style.safeArea}>
@@ -38,7 +26,7 @@ const SettingsScreen = (
             activeTabStyle={style.activeTab}
             values={languagesArray}
             selectedIndex={languagesArray.indexOf(language)}
-            onTabPress={handleIndexChange}
+            onTabPress={handleLanguageChange}
           />
         </View>
         <View style={style.settingWrapper}>
@@ -47,7 +35,7 @@ const SettingsScreen = (
             thumbColor={Color.MAIN}
             trackColor={Color.WHITE}
             ios_backgroundColor={Color.WHITE}
-            onValueChange={handleSwitchChange}
+            onValueChange={handleIsTouchIDAuthChange}
             value={isTouchIDAuth}
           />
         </View>
