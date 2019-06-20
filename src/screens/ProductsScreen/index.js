@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import ProductsScreen from './ProductsScreen';
@@ -30,11 +30,14 @@ const ProductsScreenContainer = (
   },
 ) => {
 
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
   return (
     <ProductsScreen
       productsIds={productsIds}
       isLoadingProducts={isLoadingProducts}
-      getAllProducts={getAllProducts}
       productsEntities={productsEntities}
     />
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import style from './style';
 
 import { SafeAreaView, View } from 'react-native';
@@ -9,14 +9,9 @@ const ProductsScreen = (
   {
     productsIds,
     isLoadingProducts,
-    getAllProducts,
     productsEntities,
   },
 ) => {
-
-  useEffect(() => {
-    getAllProducts();
-  }, []);
 
   return (
     <SafeAreaView style={style.safeArea}>
