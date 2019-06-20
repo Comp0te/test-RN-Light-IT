@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React from 'react';
 import style from './style';
 
 import { SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform, Text } from 'react-native';
@@ -6,44 +6,20 @@ import { TextField } from 'react-native-materialui-textfield';
 import Link from '../../components/Link'
 import { Button } from 'react-native-material-ui';
 
-import navService from '../../services/nav.service';
-import touchIDService from '../../services/touchID.service';
-
-const LoginScreen = ({submitLogin, isLoading}) => {
-  const [username, setUserName] = useState('');
-  const [password, setPassword] = useState('');
-  const [biometryType, setBiometryType] = useState(null);
-
-  useEffect(() => {
-    touchIDService.isSupported()
-      .then(biometryType => setBiometryType(biometryType))
-  }, []);
-
-  const onEnterUserName = useCallback((text) => {
-    setUserName(text);
-  }, []);
-
-  const onEnterPassword = useCallback((text) => {
-    setPassword(text);
-  }, []);
-
-  const onSubmit = useCallback(() => {
-    submitLogin({
-      username,
-      password,
-    });
-  }, [submitLogin, username, password]);
-
-  const onPressSignInWithTouchID = useCallback(() => {
-    touchIDService.authenticate(
-      'For sign in to application',
-      () => navService.navigate('ProductsScreen'),
-    )
-  }, []);
-
-  const toRegistrationScreen = () => {
-    navService.navigate('RegistrationScreen');
-  };
+const LoginScreen = (
+  {
+    username,
+    password,
+    biometryType,
+    isLoading,
+    isTouchIdAuth,
+    onEnterUserName,
+    onEnterPassword,
+    onSubmit,
+    onPressSignInWithTouchID,
+    toRegistrationScreen,
+  },
+) => {
 
   return (
     <SafeAreaView style={style.safeArea}>
@@ -74,7 +50,7 @@ const LoginScreen = ({submitLogin, isLoading}) => {
             />
           </View>
           {
-            biometryType &&
+            isTouchIdAuth && biometryType &&
             <View style={style.signInTouchIDWrapper}>
               <Button
                 primary={true}
