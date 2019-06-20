@@ -20,6 +20,10 @@ export function* invalidTokenSaga(action) {
   }
 }
 
+export function* logOutSaga() {
+  yield fork([navService, navService.navigate], 'RegistrationScreen');
+}
+
 export function* authRootSaga() {
   yield takeEvery([
     requestsAC.login.ActionTypes.LOGIN_REQUEST_SUCCESS,
@@ -30,4 +34,8 @@ export function* authRootSaga() {
     requestsAC.register.ActionTypes.REGISTER_REQUEST_FAIL,
     requestsAC.login.ActionTypes.LOGIN_REQUEST_FAIL,
   ], invalidTokenSaga);
+
+  yield takeEvery([
+    authAC.ActionTypes.AUTH_LOGOUT,
+  ], logOutSaga);
 }

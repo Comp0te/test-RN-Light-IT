@@ -1,7 +1,7 @@
 import * as fromActions from './AC';
 
 export const initialState = {
-  language: 'en',
+  language: 'EN',
   isTouchIDAuth: true,
 };
 

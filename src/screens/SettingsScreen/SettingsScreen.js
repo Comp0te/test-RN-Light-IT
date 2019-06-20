@@ -15,7 +15,7 @@ const SettingsScreen = (
     setIsTouchIDAuth,
   }
   ) => {
-  const languagesArray = ["en", "ru"];
+  const languagesArray = ["EN", "RU"];
 
   const handleIndexChange = useCallback((index) => {
     setLanguage(languagesArray[index]);
