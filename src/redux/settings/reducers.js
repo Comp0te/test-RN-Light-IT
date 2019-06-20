@@ -1,4 +1,5 @@
 import * as fromActions from './AC';
+import * as authActions from '../auth/AC';
 
 export const initialState = {
   language: 'EN',
@@ -23,6 +24,12 @@ export function settingsReducer(state = initialState, action) {
       return {
         ...state,
         isTouchIDAuth: isEnabled,
+      };
+    }
+
+    case authActions.ActionTypes.AUTH_LOGOUT: {
+      return {
+        ...initialState,
       };
     }
 

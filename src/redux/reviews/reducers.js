@@ -1,4 +1,5 @@
 import * as fromActions from './AC';
+import * as authActions from '../auth/AC';
 import { ReviewModel } from '../../models/review.model';
 import { getNewEntitiesAfterSetData } from '../../utils/utilsForRedux';
 
@@ -18,6 +19,12 @@ export function reviewsReducer(state = initialState, action) {
         ...state,
         entities: newEntities,
         allIds: Object.keys(newEntities),
+      };
+    }
+
+    case authActions.ActionTypes.AUTH_LOGOUT: {
+      return {
+        ...initialState,
       };
     }
 
