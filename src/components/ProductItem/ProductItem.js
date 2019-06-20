@@ -1,6 +1,6 @@
-import React, { useEffect, useCallback } from 'react';
+import React from 'react';
 import style from './style';
-import { withNavigation } from 'react-navigation';
+
 import { staticEndpoint } from '../../utils/constants';
 
 import { Text, View } from 'react-native'
@@ -12,38 +12,9 @@ const ProductsItem = (
     product,
     reviewsIds,
     isLoadingReviews,
-    getAllReviews,
-    saveProductWithReviews,
-    navigation,
-    isActive,
+    fetchReviewsList,
   },
 ) => {
-
-  const onPressSave = useCallback(() => {
-    saveProductWithReviews(product.id)
-  },[product]);
-
-  useEffect(() => {
-    navigation.setParams({
-      title: product.title,
-      onPressSave,
-      isLoadingReviews,
-    })
-  }, [product, isActive, isLoadingReviews]);
-
-  const fetchReviewsList = useCallback(() => {
-    if (product) {
-      getAllReviews(product.id)
-    }
-  }, [product]);
-
-  useEffect(() => {
-    fetchReviewsList();
-  }, [fetchReviewsList]);
-
-  if (!product) {
-    return null;
-  }
 
   const imageUri = `${staticEndpoint}${product.img}`;
 
@@ -68,4 +39,4 @@ const ProductsItem = (
   );
 };
 
-export default withNavigation(ProductsItem);
+export default React.memo(ProductsItem);
