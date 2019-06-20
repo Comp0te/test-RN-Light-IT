@@ -4,8 +4,6 @@ import style from './style';
 import { SafeAreaView, View } from 'react-native';
 import ProductsList from '../../components/ProductsList';
 import Spinner from '../../components/Spinner';
-import AdBanner from '../../components/AdBanner';
-
 
 const ProductsScreen = (
   {
@@ -21,13 +19,10 @@ const ProductsScreen = (
         {
           isLoadingProducts ?
             <Spinner/> :
-            <>
-              <ProductsList
-                productsIds={productsIds}
-                productsEntities={productsEntities}
-              />
-              <AdBanner/>
-            </>
+            <ProductsList
+              productsIds={productsIds}
+              productsEntities={productsEntities}
+            />
         }
       </View>
     </SafeAreaView>
