@@ -10,13 +10,25 @@ import { getUsersByProductIdAndReviews } from '../users/selectors';
 
 import realmService from '../../services/realm.service';
 
-export function* getTokenFromRealmSaga() {
+export function* rehydrateStoreSaga() {
   yield call([realmService, realmService.initialize]);
   const auth = yield call([realmService, realmService.read], realmService.SchemaName.AUTH);
   const token = auth?.[0]?.token;
 
   if (token) {
     yield put(authAC.Actions.setToken(auth[0].token))
+  }
+
+  const settings = yield call([realmService, realmService.read], realmService.SchemaName.SETTINGS);
+  const language = settings?.[0]?.language;
+  const isTouchIDAuth = settings?.[0]?.isTouchIDAuth;
+
+  if (language) {
+    yield put(settingsAC.Actions.setLanguage(language));
+  }
+
+  if (isTouchIDAuth !== null) {
+    yield put(settingsAC.Actions.setIsTouchIDAuth(isTouchIDAuth));
   }
 }
 
@@ -90,7 +102,7 @@ export function* deleteAllRealmDataSaga() {
 export function* realmRootSaga() {
   yield takeEvery([
     realmAC.ActionTypes.REHYDRATE_STORE,
-  ], getTokenFromRealmSaga);
+  ], rehydrateStoreSaga);
 
   yield takeEvery([
     requestsAC.login.ActionTypes.LOGIN_REQUEST_SUCCESS,
