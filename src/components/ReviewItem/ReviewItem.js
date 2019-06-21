@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import style from './style'
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { ListItem, Icon } from 'react-native-material-ui';
 
@@ -20,14 +20,20 @@ const ReviewsItem = ({username, text, rate}) => {
     )
   }, [rate]);
 
+  const getContent = useCallback(() => {
+    return (
+      <>
+        <Text style={style.title}>{username}</Text>
+        <Text>{text}</Text>
+      </>
+    )
+  }, [username, text]);
+
   return (
     <ListItem
       numberOfLines={3}
       leftElement='comment'
-      centerElement={{
-        primaryText: username,
-        secondaryText: text,
-      }}
+      centerElement={getContent()}
       rightElement={getStars()}
       divider={true}
     />
