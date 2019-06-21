@@ -5,6 +5,7 @@ import { SafeAreaView, View, Text, FlatList } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { staticEndpoint } from "../../utils/constants";
 import ReviewItem from "../../components/ReviewItem/ReviewItem";
+import AdBanner from "../../components/AdBanner";
 
 const SavedProductDetailScreen = (
   {
@@ -54,6 +55,7 @@ const SavedProductDetailScreen = (
           maxToRenderPerBatch={2}
           style={style.wrapper}
         />
+        <AdBanner/>
       </View>
     </SafeAreaView>
   );
