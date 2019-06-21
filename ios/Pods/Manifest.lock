@@ -1,6 +1,11 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
+  - Firebase/AdMob (6.2.0):
+    - Firebase/CoreOnly
+    - Google-Mobile-Ads-SDK (~> 7.44)
+  - Firebase/Analytics (6.2.0):
+    - Firebase/Core
   - Firebase/Core (6.2.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.0.1)
@@ -27,6 +32,8 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - Google-Mobile-Ads-SDK (7.45.0):
+    - GoogleAppMeasurement (~> 6.0)
   - GoogleAppMeasurement (6.0.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -114,7 +121,7 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNGestureHandler (1.0.12):
+  - RNGestureHandler (1.3.0):
     - React
   - RNVectorIcons (6.5.0):
     - React
@@ -127,9 +134,12 @@ PODS:
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Firebase/AdMob (~> 6.2.0)
+  - Firebase/Analytics
   - Firebase/Core (~> 6.2.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/GLog.podspec`)
+  - Google-Mobile-Ads-SDK
   - react-native-fast-image (from `../node_modules/react-native-fast-image`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -157,6 +167,7 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseInstanceID
+    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
@@ -191,17 +202,18 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: f20243a1d828e0e9a3798b995174dedc16f1b32a
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
+  Google-Mobile-Ads-SDK: f76d0f6b67445d64928f3ba1235ad85483fa8537
   GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
   GoogleUtilities: 996e0db07153674fd1b54b220fda3a3dc3547cba
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-fast-image: 3390cc968d598f0c6b5c710df138f4b653a87231
-  RNGestureHandler: 19864cb399138347461e7c9984ccf684cbf4db1d
+  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNVectorIcons: f6cf608dee5b2cb5726ff3b629a5258586d5677b
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 23993c84be5ecb58b1edf0a757f7b9fbd94cc86b
+PODFILE CHECKSUM: 93be0d9fc8df07e67e6abf9f2848c39d155a5e6b
 
 COCOAPODS: 1.7.1

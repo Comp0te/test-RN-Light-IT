@@ -1,9 +1,12 @@
 package com.compotetestrn;
 
+import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+import com.google.android.gms.ads.MobileAds;
 
 
 public class MainActivity extends ReactActivity {
@@ -25,5 +28,12 @@ public class MainActivity extends ReactActivity {
                 return new RNGestureHandlerEnabledRootView(MainActivity.this);
             }
         };
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        MobileAds.initialize(this, "ca-app-pub-4199044569583091~1186583923");
     }
 }

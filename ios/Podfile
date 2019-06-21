@@ -32,6 +32,9 @@ target 'compoteTestRN' do
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'TouchID', :path => '../node_modules/react-native-touch-id'
   pod 'Firebase/Core', '~> 6.2.0'
+  pod 'Firebase/AdMob', '~> 6.2.0'
+  pod 'Firebase/Analytics'
+  pod 'Google-Mobile-Ads-SDK'
 
 end
 

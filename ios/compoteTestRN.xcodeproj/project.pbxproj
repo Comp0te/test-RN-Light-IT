@@ -39,7 +39,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* compoteTestRNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* compoteTestRNTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		3286214622BBC99100DEAB2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3286211F22BBC99100DEAB2E /* GoogleService-Info.plist */; };
+		3204722322BCEF8A004D9116 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3204722222BCEF8A004D9116 /* GoogleService-Info.plist */; };
 		4934AC7D5A7B45DDB64BC053 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AF127AF607246CE91CB07C8 /* Foundation.ttf */; };
 		611DCDE606C14086B7D6F730 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E27D1335DF492D9D3BB77A /* Ionicons.ttf */; };
 		6ACA833131D34C6D8FD49DE8 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FBDD82FCEA24D48B8F3EAF4 /* SimpleLineIcons.ttf */; };
@@ -379,7 +379,7 @@
 		2D02E4901E0B4A5D006451C7 /* compoteTestRN-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "compoteTestRN-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3F88C0CF449738375E0C4 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		3286211F22BBC99100DEAB2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3204722222BCEF8A004D9116 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		56C4F044BAE848119CFEEE60 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		653D96071B244CEE82F832AA /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
@@ -548,6 +548,7 @@
 		13B07FAE1A68108700A75B9A /* compoteTestRN */ = {
 			isa = PBXGroup;
 			children = (
+				3204722222BCEF8A004D9116 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -702,7 +703,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				3286211F22BBC99100DEAB2E /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* compoteTestRN */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* compoteTestRNTests */,
@@ -1219,7 +1219,7 @@
 				9975AE9D6A5C4F5CA164ECD0 /* Octicons.ttf in Resources */,
 				6ACA833131D34C6D8FD49DE8 /* SimpleLineIcons.ttf in Resources */,
 				BE82E7F138D245B68F490E85 /* Zocial.ttf in Resources */,
-				3286214622BBC99100DEAB2E /* GoogleService-Info.plist in Resources */,
+				3204722322BCEF8A004D9116 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
