@@ -16,37 +16,10 @@ export const AdBanner = () => {
           AdUnitID.ANDROID :
           AdUnitID.IOS
       }
-      size="SMART_BANNER"
+      size='SMART_BANNER'
       request={request.build()}
-      onAdLoaded={() => {
-        console.log('Advert loaded');
-      }}
-      onAdFailedToLoad={(e) => {
-        console.log('admob error - ', e);
-      }}
     />
   );
 };
 
 export default React.memo(AdBanner);
-
-{/*<AdMobBanner*/
-}
-{/*  adSize='banner'*/
-}
-{/*  adUnitID={*/
-}
-{/*    Platform.OS === 'android' ?*/
-}
-{/*      AdUnitID.ANDROID :*/
-}
-{/*      AdUnitID.IOS*/
-}
-{/*  }*/
-}
-{/*  testDevices={[AdMobBanner.simulatorId]}*/
-}
-{/*  onAdFailedToLoad={error => console.log(error)}*/
-}
-{/*/>*/
-}
