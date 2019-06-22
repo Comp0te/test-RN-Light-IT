@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { useTranslation } from 'react-i18next';
 
 import navService from '../services/nav.service';
+import i18nService from '../services/i18n.service';
 import { Actions as realmActions } from '../redux/realm/AC';
 
 import AuthNavigator from './auth.navigator'
@@ -23,8 +25,11 @@ const AppNavigator = ({dispatch}) => {
     navService.navigator = navigatorRef;
   };
 
+  const {i18n} = useTranslation();
+
   useEffect(() => {
-    dispatch(realmActions.rehydrateStore())
+    dispatch(realmActions.rehydrateStore());
+    i18nService.i18n = i18n;
   }, []);
 
   return (
