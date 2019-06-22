@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Languages } from '../../utils/constants';
 import { connect } from 'react-redux';
 import { Actions as authActions } from '../../redux/auth/AC';
 import { Actions as settingsActions } from '../../redux/settings/AC';
@@ -14,7 +15,7 @@ const SettingsScreenContainer = (
     setIsTouchIDAuth,
   },
 ) => {
-  const languagesArray = ["EN", "RU"];
+  const languagesArray = Object.values(Languages);
 
   const handleLanguageChange = useCallback((index) => {
     setLanguage(languagesArray[index]);

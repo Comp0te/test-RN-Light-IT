@@ -5,3 +5,8 @@ export const AdUnitID = {
   ANDROID: 'ca-app-pub-4199044569583091/4652607090',
   IOS: 'ca-app-pub-4199044569583091/1259145230',
 };
+
+export const Languages = {
+  RU: 'Russian',
+  EN: 'English',
+};
