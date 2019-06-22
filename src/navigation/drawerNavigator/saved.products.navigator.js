@@ -7,11 +7,11 @@ import { Button } from "react-native-material-ui";
 import React from "react";
 
 const SavedProductsNavigator = createStackNavigator({
-  SavedProductsScreen: {
+  [navService.ScreenRouteNames.SAVED_PRODUCTS_SCREEN]: {
     screen: SavedProductsScreen,
     navigationOptions: navService.navigationOptions('Saved products'),
   },
-  SavedProductDetailScreen: {
+  [navService.ScreenRouteNames.SAVED_PRODUCT_DETAIL_SCREEN]: {
     screen: SavedProductDetailScreen,
     navigationOptions: ({navigation}) => {
       const title = navigation.getParam('title');
@@ -31,7 +31,7 @@ const SavedProductsNavigator = createStackNavigator({
     },
   },
 }, {
-  initialRouteName: 'SavedProductsScreen',
+  initialRouteName: navService.ScreenRouteNames.SAVED_PRODUCTS_SCREEN,
 });
 
 export default SavedProductsNavigator;

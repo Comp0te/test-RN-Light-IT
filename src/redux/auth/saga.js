@@ -6,7 +6,7 @@ import { requestsAC } from '../requests/AC';
 import navService from '../../services/nav.service';
 
 export function* authFlowSaga({payload}) {
-  yield fork([navService, navService.navigate], 'ProductsScreen');
+  yield fork([navService, navService.navigate], navService.ScreenRouteNames.PRODUCTS_SCREEN);
   yield put(authAC.Actions.setToken(payload.data.token));
 }
 
@@ -21,7 +21,7 @@ export function* invalidTokenSaga(action) {
 }
 
 export function* logOutSaga() {
-  yield fork([navService, navService.navigate], 'RegistrationScreen');
+  yield fork([navService, navService.navigate], navService.ScreenRouteNames.REGISTRATION_SCREEN);
 }
 
 export function* authRootSaga() {

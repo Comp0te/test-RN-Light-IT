@@ -4,24 +4,26 @@ import { createDrawerNavigator } from 'react-navigation';
 import { Color } from '../../Themes/colors';
 import { Icon } from 'react-native-material-ui';
 
+import navService from '../../services/nav.service';
+
 import ProductsNavigator from './products.navigator';
 import SavedProductsNavigator from './saved.products.navigator';
 import SettingsNavigator from './settings.navigator';
 
 const DrawerNavigator = createDrawerNavigator({
-  ProductsNavigator: {
+  [navService.NavRouteNames.PRODUCTS_NAVIGATOR]: {
     screen: ProductsNavigator,
     navigationOptions: {
       drawerLabel: 'Products',
     }
   },
-  SavedProductsNavigator: {
+  [navService.NavRouteNames.SAVED_PRODUCTS_NAVIGATOR]: {
     screen: SavedProductsNavigator,
     navigationOptions: {
       drawerLabel: 'Saved products',
     }
   },
-  SettingsNavigator: {
+  [navService.NavRouteNames.SETTINGS_NAVIGATOR]: {
     screen: SettingsNavigator,
     navigationOptions: {
       drawerLabel: 'Settings',
@@ -29,7 +31,7 @@ const DrawerNavigator = createDrawerNavigator({
   },
 }, {
   drawerWidth: Dimensions.get('window').width * 0.8,
-  initialRouteName: 'ProductsNavigator',
+  initialRouteName: navService.NavRouteNames.PRODUCTS_NAVIGATOR,
   contentOptions: {
     activeTintColor: Color.MAIN,
     inactiveTintColor: Color.GREY,
@@ -38,7 +40,7 @@ const DrawerNavigator = createDrawerNavigator({
     drawerIcon: ({tintColor}) => {
       const {routeName} = navigation.state;
 
-      if (routeName === 'ProductsNavigator') {
+      if (routeName === navService.NavRouteNames.PRODUCTS_NAVIGATOR) {
         return (
           <Icon
             name='laptop'
@@ -46,7 +48,7 @@ const DrawerNavigator = createDrawerNavigator({
             color={tintColor ? tintColor : undefined}
           />
         );
-      } else if (routeName === 'SavedProductsNavigator') {
+      } else if (routeName === navService.NavRouteNames.SAVED_PRODUCTS_NAVIGATOR) {
         return (
           <Icon
             name='shopping-cart'

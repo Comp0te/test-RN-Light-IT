@@ -4,12 +4,12 @@ import navService from "../../services/nav.service";
 import SettingsScreen from "../../screens/SettingsScreen";
 
 const SettingsNavigator = createStackNavigator({
-  SettingsScreen: {
+  [navService.ScreenRouteNames.SETTINGS_SCREEN]: {
     screen: SettingsScreen,
     navigationOptions: navService.navigationOptions('Settings'),
   },
 }, {
-  initialRouteName: 'SettingsScreen',
+  initialRouteName: navService.ScreenRouteNames.SETTINGS_SCREEN,
 });
 
 export default SettingsNavigator;

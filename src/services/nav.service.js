@@ -6,6 +6,31 @@ import { headerTitleStyle, headerStyle, headerTitleContainerStyle } from '../The
 class NavService {
   _navigator;
 
+  _NavRouteNames = {
+    AUTH_NAVIGATOR: 'AuthNavigator',
+    DRAWER_NAVIGATOR: 'DrawerNavigator',
+    PRODUCTS_NAVIGATOR: 'ProductsNavigator',
+    SAVED_PRODUCTS_NAVIGATOR: 'SavedProductsNavigator',
+    SETTINGS_NAVIGATOR: 'SettingsNavigator',
+  };
+
+  _ScreenRouteNames = {
+    LOGIN_SCREEN: 'LoginScreen',
+    REGISTRATION_SCREEN: 'RegistrationScreen',
+    PRODUCTS_SCREEN: 'ProductsScreen',
+    SAVED_PRODUCTS_SCREEN: 'SavedProductsScreen',
+    SAVED_PRODUCT_DETAIL_SCREEN: 'SavedProductDetailScreen',
+    SETTINGS_SCREEN: 'SettingsScreen',
+  };
+
+  get NavRouteNames() {
+    return this._NavRouteNames;
+  }
+
+  get ScreenRouteNames() {
+    return this._ScreenRouteNames;
+  }
+
   set navigator(ref) {
     this._navigator = ref;
   }

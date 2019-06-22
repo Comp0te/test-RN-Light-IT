@@ -7,16 +7,16 @@ import LoginScreen from '../screens/LoginScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
 
 const authNavigator = createStackNavigator({
-  LoginScreen: {
+  [navService.ScreenRouteNames.LOGIN_SCREEN]: {
     screen: LoginScreen,
     navigationOptions: navService.navigationOptions('Sing In'),
   },
-  RegistrationScreen: {
+  [navService.ScreenRouteNames.REGISTRATION_SCREEN]: {
     screen: RegistrationScreen,
     navigationOptions: navService.navigationOptions('Registration'),
   },
 }, {
-  initialRouteName: 'LoginScreen',
+  initialRouteName: navService.ScreenRouteNames.LOGIN_SCREEN,
 });
 
 export default authNavigator;

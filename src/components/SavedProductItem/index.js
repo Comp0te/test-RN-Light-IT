@@ -23,7 +23,7 @@ const SavedProductItem = ({product}) => {
   );
 
   const onRightElementPress = useCallback(() => {
-    navService.navigate('SavedProductDetailScreen', {product})
+    navService.navigate(navService.ScreenRouteNames.SAVED_PRODUCT_DETAIL_SCREEN, {product})
   }, [product]);
 
   return (

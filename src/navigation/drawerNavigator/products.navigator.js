@@ -5,7 +5,7 @@ import ProductsScreen from "../../screens/ProductsScreen";
 import navService from "../../services/nav.service";
 
 const ProductsNavigator = createStackNavigator({
-  ProductsScreen: {
+  [navService.ScreenRouteNames.PRODUCTS_SCREEN]: {
     screen: ProductsScreen,
     navigationOptions: ({navigation}) => {
       const title = navigation.getParam('title', 'Available products');
@@ -26,7 +26,7 @@ const ProductsNavigator = createStackNavigator({
     },
   },
 }, {
-  initialRouteName: 'ProductsScreen',
+  initialRouteName: navService.ScreenRouteNames.PRODUCTS_SCREEN,
 });
 
 export default ProductsNavigator;

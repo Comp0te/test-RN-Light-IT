@@ -58,12 +58,12 @@ const LoginScreenContainer = (
   const onPressSignInWithTouchID = useCallback(() => {
     touchIDService.authenticate(
       'For sign in to application',
-      () => navService.navigate('ProductsScreen'),
+      () => navService.navigate(navService.ScreenRouteNames.PRODUCTS_SCREEN),
     )
   }, []);
 
   const toRegistrationScreen = useCallback(() => {
-    navService.navigate('RegistrationScreen');
+    navService.navigate(navService.ScreenRouteNames.REGISTRATION_SCREEN);
   }, []);
 
   return (
