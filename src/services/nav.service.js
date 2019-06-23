@@ -1,27 +1,15 @@
 import React from 'react';
 import { NavigationActions } from 'react-navigation';
+import { ScreenRouteNames, NavRouteNames } from '../utils/constants';
 
 import { headerTitleStyle, headerStyle, headerTitleContainerStyle } from '../Themes/navigator';
 
 class NavService {
   _navigator;
 
-  _NavRouteNames = {
-    AUTH_NAVIGATOR: 'AuthNavigator',
-    DRAWER_NAVIGATOR: 'DrawerNavigator',
-    PRODUCTS_NAVIGATOR: 'ProductsNavigator',
-    SAVED_PRODUCTS_NAVIGATOR: 'SavedProductsNavigator',
-    SETTINGS_NAVIGATOR: 'SettingsNavigator',
-  };
+  _NavRouteNames = NavRouteNames;
 
-  _ScreenRouteNames = {
-    LOGIN_SCREEN: 'LoginScreen',
-    REGISTRATION_SCREEN: 'RegistrationScreen',
-    PRODUCTS_SCREEN: 'ProductsScreen',
-    SAVED_PRODUCTS_SCREEN: 'SavedProductsScreen',
-    SAVED_PRODUCT_DETAIL_SCREEN: 'SavedProductDetailScreen',
-    SETTINGS_SCREEN: 'SettingsScreen',
-  };
+  _ScreenRouteNames = ScreenRouteNames;
 
   get NavRouteNames() {
     return this._NavRouteNames;

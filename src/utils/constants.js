@@ -10,3 +10,20 @@ export const Languages = {
   RU: 'Russian',
   EN: 'English',
 };
+
+export const NavRouteNames = {
+  AUTH_NAVIGATOR: 'AuthNavigator',
+  DRAWER_NAVIGATOR: 'DrawerNavigator',
+  PRODUCTS_NAVIGATOR: 'ProductsNavigator',
+  SAVED_PRODUCTS_NAVIGATOR: 'SavedProductsNavigator',
+  SETTINGS_NAVIGATOR: 'SettingsNavigator',
+};
+
+export const ScreenRouteNames = {
+  LOGIN_SCREEN: 'LoginScreen',
+  REGISTRATION_SCREEN: 'RegistrationScreen',
+  PRODUCTS_SCREEN: 'ProductsScreen',
+  SAVED_PRODUCTS_SCREEN: 'SavedProductsScreen',
+  SAVED_PRODUCT_DETAIL_SCREEN: 'SavedProductDetailScreen',
+  SETTINGS_SCREEN: 'SettingsScreen',
+};
