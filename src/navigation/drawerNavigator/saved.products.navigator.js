@@ -9,11 +9,11 @@ import React from "react";
 const SavedProductsNavigator = createStackNavigator({
   [navService.ScreenRouteNames.SAVED_PRODUCTS_SCREEN]: {
     screen: SavedProductsScreen,
-    navigationOptions: navService.navigationOptions('Saved products'),
+    navigationOptions: ({screenProps: {t}}) => navService.navigationOptions(t('Saved products')),
   },
   [navService.ScreenRouteNames.SAVED_PRODUCT_DETAIL_SCREEN]: {
     screen: SavedProductDetailScreen,
-    navigationOptions: ({navigation}) => {
+    navigationOptions: ({navigation, screenProps: {t}}) => {
       const title = navigation.getParam('title');
       const onPressDelete = navigation.getParam('onPressDelete', null);
 
@@ -23,7 +23,7 @@ const SavedProductsNavigator = createStackNavigator({
           !!onPressDelete &&
           <Button
             primary={true}
-            text='Delete'
+            text={t('Delete')}
             onPress={onPressDelete}
           />
         ),

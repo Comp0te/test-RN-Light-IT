@@ -6,7 +6,9 @@ import SettingsScreen from "../../screens/SettingsScreen";
 const SettingsNavigator = createStackNavigator({
   [navService.ScreenRouteNames.SETTINGS_SCREEN]: {
     screen: SettingsScreen,
-    navigationOptions: navService.navigationOptions('Settings'),
+    navigationOptions: ({screenProps: { t }}) => ({
+      ...navService.navigationOptions(t('Settings')),
+    }),
   },
 }, {
   initialRouteName: navService.ScreenRouteNames.SETTINGS_SCREEN,

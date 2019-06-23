@@ -9,11 +9,11 @@ import RegistrationScreen from '../screens/RegistrationScreen';
 const authNavigator = createStackNavigator({
   [navService.ScreenRouteNames.LOGIN_SCREEN]: {
     screen: LoginScreen,
-    navigationOptions: navService.navigationOptions('Sing In'),
+    navigationOptions: ({screenProps: {t}}) => navService.navigationOptions(t('Sign In')),
   },
   [navService.ScreenRouteNames.REGISTRATION_SCREEN]: {
     screen: RegistrationScreen,
-    navigationOptions: navService.navigationOptions('Registration'),
+    navigationOptions: ({screenProps: {t}}) => navService.navigationOptions(t('Registration')),
   },
 }, {
   initialRouteName: navService.ScreenRouteNames.LOGIN_SCREEN,

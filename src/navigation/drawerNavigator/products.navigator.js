@@ -7,8 +7,8 @@ import navService from "../../services/nav.service";
 const ProductsNavigator = createStackNavigator({
   [navService.ScreenRouteNames.PRODUCTS_SCREEN]: {
     screen: ProductsScreen,
-    navigationOptions: ({navigation}) => {
-      const title = navigation.getParam('title', 'Available products');
+    navigationOptions: ({navigation, screenProps: {t}}) => {
+      const title = navigation.getParam('title', t('Available products'));
       const onPressSave = navigation.getParam('onPressSave', null);
       const isLoadingReviews = navigation.getParam('isLoadingReviews', false);
 
@@ -18,7 +18,7 @@ const ProductsNavigator = createStackNavigator({
           !!onPressSave && !isLoadingReviews &&
           <Button
             primary={true}
-            text='Save'
+            text={t('Save')}
             onPress={onPressSave}
           />
         ),

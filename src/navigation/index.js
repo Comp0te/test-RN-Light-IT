@@ -15,7 +15,7 @@ const Navigator = createSwitchNavigator({
   [navService.NavRouteNames.AUTH_NAVIGATOR]: AuthNavigator,
   [navService.NavRouteNames.DRAWER_NAVIGATOR]: DrawerNavigator,
 }, {
-  initialRouteName: navService.NavRouteNames.DRAWER_NAVIGATOR,
+  initialRouteName: navService.NavRouteNames.AUTH_NAVIGATOR,
 });
 
 const NavigatorContainer = createAppContainer(Navigator);
@@ -25,7 +25,7 @@ const AppNavigator = ({dispatch}) => {
     navService.navigator = navigatorRef;
   };
 
-  const {i18n} = useTranslation();
+  const {t, i18n} = useTranslation('navigation');
 
   useEffect(() => {
     dispatch(realmActions.rehydrateStore());
@@ -34,7 +34,12 @@ const AppNavigator = ({dispatch}) => {
 
   return (
     <View style={{flex: 1}}>
-      <NavigatorContainer ref={setNavigator}/>
+      <NavigatorContainer
+        ref={setNavigator}
+        screenProps={{
+          t,
+        }}
+      />
     </View>
   );
 };

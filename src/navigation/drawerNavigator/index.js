@@ -13,21 +13,21 @@ import SettingsNavigator from './settings.navigator';
 const DrawerNavigator = createDrawerNavigator({
   [navService.NavRouteNames.PRODUCTS_NAVIGATOR]: {
     screen: ProductsNavigator,
-    navigationOptions: {
-      drawerLabel: 'Products',
-    }
+    navigationOptions: ({screenProps: {t}}) => ({
+      drawerLabel: t('Products'),
+    })
   },
   [navService.NavRouteNames.SAVED_PRODUCTS_NAVIGATOR]: {
     screen: SavedProductsNavigator,
-    navigationOptions: {
-      drawerLabel: 'Saved products',
-    }
+    navigationOptions: ({screenProps: {t}}) => ({
+      drawerLabel: t('Saved products'),
+    })
   },
   [navService.NavRouteNames.SETTINGS_NAVIGATOR]: {
     screen: SettingsNavigator,
-    navigationOptions: {
-      drawerLabel: 'Settings',
-    }
+    navigationOptions: ({screenProps: {t}}) => ({
+      drawerLabel: t('Settings'),
+    })
   },
 }, {
   drawerWidth: Dimensions.get('window').width * 0.8,
