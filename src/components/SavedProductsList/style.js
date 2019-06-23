@@ -6,6 +6,9 @@ const style = StyleSheet.create({
     flex: 1,
     backgroundColor: Color.WHITE,
   },
+  noProductsText: {
+    textAlign: 'center',
+  },
 });
 
 export default style;

@@ -1,5 +1,7 @@
 import React from 'react';
 import style from './style';
+import { useTranslation } from 'react-i18next';
+import { ScreenRouteNames } from '../../utils/constants';
 
 import { SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform } from 'react-native';
 import { TextField } from 'react-native-materialui-textfield';
@@ -20,6 +22,8 @@ const RegistrationScreen = (
   },
 ) => {
 
+  const {t} = useTranslation(ScreenRouteNames.REGISTRATION_SCREEN);
+
   return (
     <SafeAreaView style={style.safeArea}>
       <ScrollView contentContainerStyle={style.safeArea}>
@@ -29,18 +33,18 @@ const RegistrationScreen = (
         >
           <View style={style.fieldWrapper}>
             <TextField
-              label='User Name'
+              label={t('User Name')}
               value={username}
               onChangeText={onEnterUserName}
             />
             <TextField
-              label='Password'
+              label={t('Password')}
               value={password}
               onChangeText={onEnterPassword}
               secureTextEntry={true}
             />
             <TextField
-              label='Confirm Password'
+              label={t('Confirm Password')}
               value={confirmPassword}
               onChangeText={onEnterConfirmPassword}
               secureTextEntry={true}
@@ -51,7 +55,7 @@ const RegistrationScreen = (
           <View style={style.signInWrapper}>
             <Button
               primary={true}
-              text="Submit"
+              text={t('Submit')}
               onPress={onSubmit}
               disabled={isLoading}
             />

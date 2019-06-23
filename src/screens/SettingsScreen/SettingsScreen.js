@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './style';
-import { Color } from '../../Themes/colors'
+import { Color } from '../../Themes/colors';
+import { useTranslation } from 'react-i18next';
+import { ScreenRouteNames } from '../../utils/constants';
 
 import { Button } from 'react-native-material-ui';
 import { SafeAreaView, View, Text, Switch } from 'react-native';
@@ -17,11 +19,13 @@ const SettingsScreen = (
   },
 ) => {
 
+  const {t} = useTranslation(ScreenRouteNames.SETTINGS_SCREEN);
+
   return (
     <SafeAreaView style={style.safeArea}>
       <View style={style.root}>
         <View style={style.settingWrapper}>
-          <Text style={style.text}>Application language</Text>
+          <Text style={style.text}>{t('Application language')}</Text>
           <SegmentedControlTab
             activeTabStyle={style.activeTab}
             values={languagesArray}
@@ -30,7 +34,7 @@ const SettingsScreen = (
           />
         </View>
         <View style={style.settingWrapper}>
-          <Text style={style.text}>Touch ID authorization</Text>
+          <Text style={style.text}>{t('Touch ID')}</Text>
           <Switch
             thumbColor={Color.MAIN}
             trackColor={Color.WHITE}
@@ -43,7 +47,7 @@ const SettingsScreen = (
           <Button
             primary={true}
             onPress={onPressLogOut}
-            text='Log out'
+            text={t('Log out')}
             upperCase={true}
             style={{text: style.logoutText}}
           />

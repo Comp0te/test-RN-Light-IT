@@ -1,10 +1,13 @@
 import React from 'react';
 import style from './style';
+import { useTranslation } from 'react-i18next';
 
 import { View, FlatList, Text } from 'react-native';
 import SavedProductItem from '../../components/SavedProductItem';
 
 const SavedProductsList = ({products, onRefresh, isFetchingProducts}) => {
+
+  const {t} = useTranslation();
 
   const keyExtractor = product => `${product.id}`;
 
@@ -19,7 +22,7 @@ const SavedProductsList = ({products, onRefresh, isFetchingProducts}) => {
   const ListEmptyComponent = isVisible => {
     return (
       !isVisible &&
-      <Text>You have not saved any products.</Text>
+      <Text style={style.noProductsText}>{t('No products')}</Text>
     )
   };
 
