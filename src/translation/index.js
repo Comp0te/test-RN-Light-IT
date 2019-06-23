@@ -12,6 +12,7 @@ i18n
       [Languages.RU]: ru,
     },
     lng: Languages.EN,
+    defaultNS: 'components',
     fallbackLng: Languages.EN,
     keySeparator: false,
     interpolation: {
