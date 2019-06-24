@@ -4,8 +4,9 @@ import { Color } from '../../Themes/colors';
 const style = StyleSheet.create({
   root: {
     flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
+  },
+  productContainer: {
+    paddingHorizontal: 20,
   },
   title: {
     marginBottom: 10,

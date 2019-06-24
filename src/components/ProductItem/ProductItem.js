@@ -20,16 +20,18 @@ const ProductsItem = (
 
   return (
     <View style={style.root}>
-      <FastImage
-        style={style.image}
-        source={{
-          uri: imageUri,
-          priority: FastImage.priority.high,
-        }}
-        resizeMode={FastImage.resizeMode.contain}
-      />
-      <Text style={style.title}>{product.title}</Text>
-      <Text>{product.text}</Text>
+      <View style={style.productContainer}>
+        <FastImage
+          style={style.image}
+          source={{
+            uri: imageUri,
+            priority: FastImage.priority.high,
+          }}
+          resizeMode={FastImage.resizeMode.contain}
+        />
+        <Text style={style.title}>{product.title}</Text>
+        <Text>{product.text}</Text>
+      </View>
       <ReviewsList
         reviewsIds={reviewsIds}
         isLoadingReviews={isLoadingReviews}

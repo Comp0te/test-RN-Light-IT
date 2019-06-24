@@ -5,6 +5,9 @@ const style = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  flatlist: {
+    paddingHorizontal: 5,
+  }
 });
 
 export default style;

@@ -23,6 +23,7 @@ const ReviewsList = ({reviewsIds, isLoadingReviews, onRefresh}) => {
         refreshing={isLoadingReviews}
         initialNumToRender={10}
         maxToRenderPerBatch={2}
+        style={style.flatlist}
       />
     </View>
   );
