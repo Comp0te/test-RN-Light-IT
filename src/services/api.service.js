@@ -5,7 +5,7 @@ class ApiService {
   constructor() {
     this.apisauce = create({
       baseURL: apiEndpoint,
-      timeout: 2000,
+      timeout: 10000,
       headers: { 'Content-Type': 'application/json; charset=utf-8' }
     });
   }
