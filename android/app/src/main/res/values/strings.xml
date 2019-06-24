@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">compoteTestRN</string>
+    <string name="launch_screen">Launch Screen</string>
 </resources>

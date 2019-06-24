@@ -7,6 +7,7 @@ import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 import com.google.android.gms.ads.MobileAds;
+import org.devio.rn.splashscreen.SplashScreen;
 
 
 public class MainActivity extends ReactActivity {
@@ -32,6 +33,7 @@ public class MainActivity extends ReactActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this, R.style.SplashScreenTheme);
         super.onCreate(savedInstanceState);
 
         MobileAds.initialize(this, "ca-app-pub-4199044569583091~1186583923");

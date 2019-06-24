@@ -68,6 +68,8 @@ PODS:
   - react-native-fast-image (6.0.3):
     - React
     - SDWebImage (~> 5.0)
+  - react-native-splash-screen (3.2.0):
+    - React
   - React/Core (0.59.9):
     - yoga (= 0.59.9.React)
   - React/CxxBridge (0.59.9):
@@ -140,6 +142,7 @@ DEPENDENCIES:
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/GLog.podspec`)
   - react-native-fast-image (from `../node_modules/react-native-fast-image`)
+  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -183,6 +186,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-fast-image:
     :path: "../node_modules/react-native-fast-image"
+  react-native-splash-screen:
+    :path: "../node_modules/react-native-splash-screen"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNVectorIcons:
@@ -207,12 +212,13 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-fast-image: 3390cc968d598f0c6b5c710df138f4b653a87231
+  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNVectorIcons: f6cf608dee5b2cb5726ff3b629a5258586d5677b
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 51f69eb8d29da175467df8d4a74b82a56cdae4ef
+PODFILE CHECKSUM: 9ce6e84bc61b319eb15c5c518c0c66f7af51d6b3
 
 COCOAPODS: 1.7.2

@@ -9,6 +9,7 @@ import { getReviewsByProductId } from '../reviews/selectors';
 import { getUsersByProductIdAndReviews } from '../users/selectors';
 
 import realmService from '../../services/realm.service';
+import SplashScreen from 'react-native-splash-screen';
 
 export function* rehydrateStoreSaga() {
   yield call([realmService, realmService.initialize]);
@@ -30,6 +31,8 @@ export function* rehydrateStoreSaga() {
   if (isTouchIDAuth !== null) {
     yield put(settingsAC.Actions.setIsTouchIDAuth(isTouchIDAuth));
   }
+
+  yield call([SplashScreen, SplashScreen.hide]);
 }
 
 export function* writeTokenToRealmSaga({payload}) {
