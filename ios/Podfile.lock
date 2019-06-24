@@ -139,7 +139,6 @@ DEPENDENCIES:
   - Firebase/Core (~> 6.2.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/GLog.podspec`)
-  - Google-Mobile-Ads-SDK
   - react-native-fast-image (from `../node_modules/react-native-fast-image`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -214,6 +213,6 @@ SPEC CHECKSUMS:
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 93be0d9fc8df07e67e6abf9f2848c39d155a5e6b
+PODFILE CHECKSUM: 51f69eb8d29da175467df8d4a74b82a56cdae4ef
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.2
