@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 
+import { AccessToken } from 'react-native-fbsdk';
+import { Alert } from 'react-native';
 import { Actions } from '../../redux/requests/login/AC';
 import { getIsLoading } from '../../redux/requests/login/selectors';
 import { getIsTouchIdAuth } from '../../redux/settings/selector';
@@ -37,6 +39,20 @@ const LoginScreenContainer = (
   useEffect(() => {
     touchIDService.isSupported()
       .then(biometry => setBiometryType(biometry));
+  }, []);
+
+  const onFBLoginFinished = useCallback((error, result) => {
+    if (error) {
+      console.log(`login has error: ${result.error}`);
+    } else if (result.isCancelled) {
+      console.log('login is cancelled.');
+    } else {
+      AccessToken.getCurrentAccessToken()
+        .then((data) => {
+          Alert.alert('token - ', data.accessToken.toString());
+          navService.navigate(navService.ScreenRouteNames.PRODUCTS_SCREEN);
+        });
+    }
   }, []);
 
   const onEnterUserName = useCallback((text) => {
@@ -77,6 +93,7 @@ const LoginScreenContainer = (
       onSubmit={onSubmit}
       onPressSignInWithTouchID={onPressSignInWithTouchID}
       toRegistrationScreen={toRegistrationScreen}
+      onFBLoginFinished={onFBLoginFinished}
     />
   );
 };

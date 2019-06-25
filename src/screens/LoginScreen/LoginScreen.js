@@ -2,8 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
-  SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform, Text,
+  SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform, Text, Alert,
 } from 'react-native';
+import { LoginButton } from 'react-native-fbsdk';
 import { TextField } from 'react-native-materialui-textfield';
 import { Button } from 'react-native-material-ui';
 import TextLink from '../../components/TextLink';
@@ -22,6 +23,7 @@ const LoginScreen = (
     onSubmit,
     onPressSignInWithTouchID,
     toRegistrationScreen,
+    onFBLoginFinished,
   },
 ) => {
   const { t } = useTranslation(ScreenRouteNames.LOGIN_SCREEN);
@@ -54,6 +56,7 @@ const LoginScreen = (
               disabled={isLoading}
             />
           </View>
+          <LoginButton onLoginFinished={onFBLoginFinished} />
           {
             isTouchIdAuth && biometryType
             && (
