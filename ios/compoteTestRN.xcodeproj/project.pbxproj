@@ -40,6 +40,10 @@
 		2DCD954D1E0B4F2C00145EB5 /* compoteTestRNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* compoteTestRNTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		3204722322BCEF8A004D9116 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3204722222BCEF8A004D9116 /* GoogleService-Info.plist */; };
+		3205BD6522C253F900C7B717 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3205BD6422C253F900C7B717 /* libRNGoogleSignin.a */; };
+		3205BD8E22C2540800C7B717 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3205BD8D22C2540800C7B717 /* AddressBook.framework */; };
+		3205BD9022C2541400C7B717 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3205BD8F22C2541400C7B717 /* SafariServices.framework */; };
+		3205BD9222C2542200C7B717 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3205BD9122C2542100C7B717 /* SystemConfiguration.framework */; };
 		4934AC7D5A7B45DDB64BC053 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AF127AF607246CE91CB07C8 /* Foundation.ttf */; };
 		611DCDE606C14086B7D6F730 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E27D1335DF492D9D3BB77A /* Ionicons.ttf */; };
 		6ACA833131D34C6D8FD49DE8 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FBDD82FCEA24D48B8F3EAF4 /* SimpleLineIcons.ttf */; };
@@ -380,6 +384,10 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3F88C0CF449738375E0C4 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		3204722222BCEF8A004D9116 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3205BD6422C253F900C7B717 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3205BD8D22C2540800C7B717 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3205BD8F22C2541400C7B717 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		3205BD9122C2542100C7B717 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		56C4F044BAE848119CFEEE60 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		653D96071B244CEE82F832AA /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
@@ -418,6 +426,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E51F490E874A72AF0BC5D4 /* libz.tbd in Frameworks */,
+				3205BD9222C2542200C7B717 /* SystemConfiguration.framework in Frameworks */,
+				3205BD9022C2541400C7B717 /* SafariServices.framework in Frameworks */,
+				3205BD8E22C2540800C7B717 /* AddressBook.framework in Frameworks */,
+				3205BD6522C253F900C7B717 /* libRNGoogleSignin.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
@@ -434,7 +447,6 @@
 				11CC4E4254DDCD1B2CD28645 /* libPods-compoteTestRN.a in Frameworks */,
 				A902A96D283E41C2B9BE6048 /* libRealmReact.a in Frameworks */,
 				160048D7D61E4293944F35C5 /* libc++.tbd in Frameworks */,
-				D4E51F490E874A72AF0BC5D4 /* libz.tbd in Frameworks */,
 				776349B37C9344C8B1ADCDF8 /* libRNFirebase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +598,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3205BD9122C2542100C7B717 /* SystemConfiguration.framework */,
+				3205BD8F22C2541400C7B717 /* SafariServices.framework */,
+				3205BD8D22C2540800C7B717 /* AddressBook.framework */,
+				3205BD6422C253F900C7B717 /* libRNGoogleSignin.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
@@ -1277,6 +1293,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-compoteTestRN/Pods-compoteTestRN-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -1296,6 +1313,7 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
