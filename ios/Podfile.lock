@@ -1,6 +1,16 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
+  - FBSDKCoreKit (5.0.2):
+    - FBSDKCoreKit/Basics (= 5.0.2)
+    - FBSDKCoreKit/Core (= 5.0.2)
+  - FBSDKCoreKit/Basics (5.0.2)
+  - FBSDKCoreKit/Core (5.0.2):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.0.2):
+    - FBSDKCoreKit (~> 5.0)
+  - FBSDKShareKit (5.0.2):
+    - FBSDKCoreKit (~> 5.0)
   - Firebase/AdMob (6.2.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.44)
@@ -68,6 +78,20 @@ PODS:
   - react-native-fast-image (6.0.3):
     - React
     - SDWebImage (~> 5.0)
+  - react-native-fbsdk (0.10.1):
+    - React
+    - react-native-fbsdk/Core (= 0.10.1)
+    - react-native-fbsdk/Login (= 0.10.1)
+    - react-native-fbsdk/Share (= 0.10.1)
+  - react-native-fbsdk/Core (0.10.1):
+    - FBSDKCoreKit (~> 5.0.0)
+    - React
+  - react-native-fbsdk/Login (0.10.1):
+    - FBSDKLoginKit (~> 5.0.0)
+    - React
+  - react-native-fbsdk/Share (0.10.1):
+    - FBSDKShareKit (~> 5.0.0)
+    - React
   - react-native-splash-screen (3.2.0):
     - React
   - React/Core (0.59.9):
@@ -142,6 +166,7 @@ DEPENDENCIES:
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/GLog.podspec`)
   - react-native-fast-image (from `../node_modules/react-native-fast-image`)
+  - react-native-fbsdk (from `../node_modules/react-native-fbsdk`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -165,6 +190,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -186,6 +214,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-fast-image:
     :path: "../node_modules/react-native-fast-image"
+  react-native-fbsdk:
+    :path: "../node_modules/react-native-fbsdk"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
   RNGestureHandler:
@@ -200,6 +230,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
+  FBSDKCoreKit: 3e41c402eb64ea7799c71833ff9e5690f27b9c42
+  FBSDKLoginKit: a88f36da648e4c5d60eb261c63eac067abb97130
+  FBSDKShareKit: 8695bbb97c18a381bbf2851a3f24f95a59121b82
   Firebase: 5965bac23e7fcb5fa6d926ed429c9ecef8a2014e
   FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
   FirebaseCore: b0f0262acebfa540e5f97b3832dbb13186980822
@@ -212,6 +245,7 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-fast-image: 3390cc968d598f0c6b5c710df138f4b653a87231
+  react-native-fbsdk: 38ee580e77319d03f8ed0bf4a020cbfd70dc4d2d
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNVectorIcons: f6cf608dee5b2cb5726ff3b629a5258586d5677b
@@ -219,6 +253,6 @@ SPEC CHECKSUMS:
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 9ce6e84bc61b319eb15c5c518c0c66f7af51d6b3
+PODFILE CHECKSUM: 5663db6271bc504828f2c4238c189a23fb714555
 
 COCOAPODS: 1.7.2
