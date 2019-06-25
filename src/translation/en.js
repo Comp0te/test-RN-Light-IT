@@ -1,19 +1,19 @@
 import { ScreenRouteNames } from '../utils/constants';
 
-export const en = {
+const en = {
   [ScreenRouteNames.LOGIN_SCREEN]: {
     'User Name': 'User Name',
-    'Password': 'Password',
-    'Submit': 'Submit',
+    Password: 'Password',
+    Submit: 'Submit',
     'Sign in with': 'Sign in with',
     'Do not have an account': 'Do not have an account? ',
     'Sign up': 'SING UP',
   },
   [ScreenRouteNames.REGISTRATION_SCREEN]: {
     'User Name': 'User Name',
-    'Password': 'Password',
+    Password: 'Password',
     'Confirm Password': 'Confirm Password',
-    'Submit': 'Submit',
+    Submit: 'Submit',
   },
   [ScreenRouteNames.SETTINGS_SCREEN]: {
     'Application language': 'Application language',
@@ -25,12 +25,14 @@ export const en = {
   },
   navigation: {
     'Sign In': 'Sign In',
-    'Registration': 'Registration',
-    'Settings': 'Settings',
+    Registration: 'Registration',
+    Settings: 'Settings',
     'Saved products': 'Saved products',
-    'Delete': 'Delete',
-    'Save': 'Save',
+    Delete: 'Delete',
+    Save: 'Save',
     'Available products': 'Available products',
-    'Products': 'Products',
+    Products: 'Products',
   },
 };
+
+export default en;

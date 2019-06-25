@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavigationActions } from 'react-navigation';
 import { ScreenRouteNames, NavRouteNames } from '../utils/constants';
 
@@ -10,6 +9,13 @@ class NavService {
   _NavRouteNames = NavRouteNames;
 
   _ScreenRouteNames = ScreenRouteNames;
+
+  _defaultNavOptions = {
+    headerTitleStyle,
+    headerStyle,
+    headerTitleContainerStyle,
+    headerTransparent: true,
+  };
 
   get NavRouteNames() {
     return this._NavRouteNames;
@@ -37,11 +43,8 @@ class NavService {
   navigationOptions(title, headerBackImage) {
     return {
       title,
-      headerTitleStyle,
-      headerStyle,
-      headerTitleContainerStyle,
-      headerTransparent: true,
       headerBackImage,
+      ...this._defaultNavOptions,
     };
   }
 }

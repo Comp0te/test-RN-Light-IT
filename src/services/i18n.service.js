@@ -1,5 +1,3 @@
-import React from 'react';
-
 class I18nService {
   _i18n;
 
@@ -9,7 +7,7 @@ class I18nService {
 
   changeLanguage(language) {
     if (this._i18n.isInitialized) {
-      this._i18n.changeLanguage(language)
+      this._i18n.changeLanguage(language);
     }
   }
 }

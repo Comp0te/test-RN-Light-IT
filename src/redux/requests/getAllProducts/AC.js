@@ -8,6 +8,9 @@ export const ActionTypes = {
 
 export const Actions = {
   getAllProducts: () => createAction(ActionTypes.GET_ALL_PRODUCTS_REQUEST),
-  getAllProductsSuccess: data => createAction(ActionTypes.GET_ALL_PRODUCTS_REQUEST_SUCCESS, { data }),
+  getAllProductsSuccess: data => createAction(
+    ActionTypes.GET_ALL_PRODUCTS_REQUEST_SUCCESS,
+    { data },
+  ),
   getAllProductsFail: errors => createAction(ActionTypes.GET_ALL_PRODUCTS_REQUEST_FAIL, { errors }),
 };

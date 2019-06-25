@@ -1,5 +1,5 @@
 import { Dimensions } from 'react-native';
-import { Color } from './colors'
+import Color from './colors';
 
 export const headerTitleStyle = {
   fontWeight: '700',

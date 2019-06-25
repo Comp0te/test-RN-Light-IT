@@ -1,14 +1,19 @@
-export class ProductModel {
+class ProductModel {
   id = 0;
+
   img = '';
+
   text = '';
+
   title = '';
 
   constructor(productModel) {
-    for (const field in productModel) {
-      if (productModel.hasOwnProperty(field) && typeof this[field] !== 'undefined') {
+    Object.keys(productModel).forEach((field) => {
+      if (typeof this[field] !== 'undefined') {
         this[field] = productModel[field];
       }
-    }
+    });
   }
 }
+
+export default ProductModel;

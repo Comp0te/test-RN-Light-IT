@@ -1,15 +1,14 @@
-import realmService from "../services/realm.service";
+import realmService from '../services/realm.service';
 
-export const populateReviewsWithUsers = reviews => {
+const populateReviewsWithUsers = reviews => reviews.map((review) => {
+  const user = realmService.realm
+    .objects(realmService.SchemaName.USER)
+    .find(userObj => userObj.id === review.userId);
 
-  return reviews.map(review => {
-    const user = realmService.realm
-      .objects(realmService.SchemaName.USER)
-      .find(user => user.id === review.userId);
+  return {
+    ...review,
+    user,
+  };
+});
 
-    return {
-      ...review,
-      user,
-    }
-  })
-};
+export default populateReviewsWithUsers;

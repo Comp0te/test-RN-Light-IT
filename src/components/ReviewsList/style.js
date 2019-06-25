@@ -7,7 +7,7 @@ const style = StyleSheet.create({
   },
   flatlist: {
     paddingHorizontal: 5,
-  }
+  },
 });
 
 export default style;

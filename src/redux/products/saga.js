@@ -2,7 +2,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 import * as productsAC from './AC';
 import { requestsAC } from '../requests/AC';
 
-export function* setProductsDataSaga({payload}) {
+export function* setProductsDataSaga({ payload }) {
   yield put(productsAC.Actions.setProductsData(payload.data));
 }
 

@@ -39,6 +39,10 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": [0],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "no-underscore-dangle": ["error", {
+      "allowAfterThis": true,
+      "allowAfterSuper": true 
+    }]
   },
 };

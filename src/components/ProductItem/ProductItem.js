@@ -1,11 +1,11 @@
 import React from 'react';
+import { Text, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import style from './style';
 
 import { staticEndpoint } from '../../utils/constants';
 
-import { Text, View } from 'react-native'
-import FastImage from 'react-native-fast-image';
-import ReviewsList from '../ReviewsList'
+import ReviewsList from '../ReviewsList';
 
 const ProductsItem = (
   {
@@ -15,7 +15,6 @@ const ProductsItem = (
     fetchReviewsList,
   },
 ) => {
-
   const imageUri = `${staticEndpoint}${product.img}`;
 
   return (

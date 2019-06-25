@@ -7,5 +7,5 @@ export const ActionTypes = {
 
 export const Actions = {
   logout: () => createAction(ActionTypes.AUTH_LOGOUT),
-  setToken: data => createAction(ActionTypes.AUTH_SET_TOKEN, { data })
+  setToken: data => createAction(ActionTypes.AUTH_SET_TOKEN, { data }),
 };

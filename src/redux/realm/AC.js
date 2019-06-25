@@ -7,5 +7,8 @@ export const ActionTypes = {
 
 export const Actions = {
   rehydrateStore: () => createAction(ActionTypes.REHYDRATE_STORE),
-  saveProductWithReviews: productId => createAction(ActionTypes.SAVE_PRODUCT_WITH_REVIEWS, {productId}),
+  saveProductWithReviews: productId => createAction(
+    ActionTypes.SAVE_PRODUCT_WITH_REVIEWS,
+    { productId },
+  ),
 };

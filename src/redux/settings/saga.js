@@ -1,9 +1,9 @@
 import { call, takeEvery } from 'redux-saga/effects';
-import * as fromActions from '../settings/AC';
+import * as fromActions from './AC';
 
 import i18nService from '../../services/i18n.service';
 
-export function* changeI18nLanguageSaga({payload}) {
+export function* changeI18nLanguageSaga({ payload }) {
   yield call([i18nService, i18nService.changeLanguage], payload.language);
 }
 

@@ -6,12 +6,11 @@ export const initialState = {
 
 export function authReducer(state = initialState, action) {
   switch (action.type) {
-
     case fromActions.ActionTypes.AUTH_SET_TOKEN: {
       const { data } = action.payload;
 
       return {
-        token: data
+        token: data,
       };
     }
 

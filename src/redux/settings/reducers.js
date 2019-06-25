@@ -9,9 +9,8 @@ export const initialState = {
 
 export function settingsReducer(state = initialState, action) {
   switch (action.type) {
-
     case fromActions.ActionTypes.SET_LANGUAGE: {
-      const {language} = action.payload;
+      const { language } = action.payload;
 
       return {
         ...state,
@@ -20,7 +19,7 @@ export function settingsReducer(state = initialState, action) {
     }
 
     case fromActions.ActionTypes.SET_IS_TOUCH_ID_AUTH: {
-      const {isEnabled} = action.payload;
+      const { isEnabled } = action.payload;
 
       return {
         ...state,

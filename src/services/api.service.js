@@ -1,4 +1,4 @@
-import { create } from 'apisauce'
+import { create } from 'apisauce';
 import { apiEndpoint } from '../utils/constants';
 
 class ApiService {
@@ -6,7 +6,7 @@ class ApiService {
     this.apisauce = create({
       baseURL: apiEndpoint,
       timeout: 10000,
-      headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
     });
   }
 
@@ -14,14 +14,14 @@ class ApiService {
     return this.apisauce
       .post(
         'login/',
-        JSON.stringify(input)
+        JSON.stringify(input),
       );
   }
 
   register(input) {
     return this.apisauce.post(
       'register/',
-      JSON.stringify(input)
+      JSON.stringify(input),
     );
   }
 

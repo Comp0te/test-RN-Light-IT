@@ -7,7 +7,7 @@ const style = StyleSheet.create({
   title: {
     marginBottom: 5,
     fontSize: 20,
-  }
+  },
 });
 
 export default style;

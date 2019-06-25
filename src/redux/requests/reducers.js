@@ -14,5 +14,5 @@ export const requestsReducer = combineReducers({
   }),
   reviews: combineReducers({
     getAll: getAllReviewsReducer,
-  })
+  }),
 });

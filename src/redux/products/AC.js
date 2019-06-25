@@ -5,5 +5,5 @@ export const ActionTypes = {
 };
 
 export const Actions = {
-  setProductsData: (data) => createAction(ActionTypes.SET_PRODUCTS_DATA, {data}),
+  setProductsData: data => createAction(ActionTypes.SET_PRODUCTS_DATA, { data }),
 };

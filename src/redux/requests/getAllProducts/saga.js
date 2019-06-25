@@ -7,7 +7,6 @@ export function* getAllProductsRequestSaga() {
     const response = yield call([apiService, apiService.getAllProducts]);
 
     yield put(Actions.getAllProductsSuccess(response.data));
-
   } catch (error) {
     yield put(Actions.getAllProductsFail(error));
   }

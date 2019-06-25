@@ -5,5 +5,5 @@ export const ActionTypes = {
 };
 
 export const Actions = {
-  setUsersDataFromReview: data => createAction(ActionTypes.SET_USERS_DATA_FROM_REVIEW, {data}),
+  setUsersDataFromReview: data => createAction(ActionTypes.SET_USERS_DATA_FROM_REVIEW, { data }),
 };

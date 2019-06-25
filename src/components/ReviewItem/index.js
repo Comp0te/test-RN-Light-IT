@@ -12,8 +12,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 
-const ReviewItemContainer = ({review, user}) => {
-
+const ReviewItemContainer = ({ review, user }) => {
   if (!review || !user) {
     return null;
   }

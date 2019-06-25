@@ -5,13 +5,13 @@ import { requestsAC } from '../requests/AC';
 
 import navService from '../../services/nav.service';
 
-export function* authFlowSaga({payload}) {
+export function* authFlowSaga({ payload }) {
   yield fork([navService, navService.navigate], navService.ScreenRouteNames.PRODUCTS_SCREEN);
   yield put(authAC.Actions.setToken(payload.data.token));
 }
 
 export function* invalidTokenSaga(action) {
-  const {errors} = action.payload;
+  const { errors } = action.payload;
 
   if (errors && errors.status === 401) {
     yield put(authAC.Actions.logout());

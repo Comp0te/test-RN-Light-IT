@@ -1,15 +1,13 @@
 import React from 'react';
-import { Color } from '../../Themes/colors';
 import { ActivityIndicator } from 'react-native';
+import Color from '../../Themes/colors';
 
-export const Spinner = ({size}) => {
-  return (
-    <ActivityIndicator
-      size={size ? size : 'large'}
-      color={Color.MAIN}
-      animating={true}
-    />
-  );
-};
+const Spinner = ({ size }) => (
+  <ActivityIndicator
+    size={size || 'large'}
+    color={Color.MAIN}
+    animating
+  />
+);
 
 export default React.memo(Spinner);

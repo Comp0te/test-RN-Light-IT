@@ -1,17 +1,15 @@
 import React from 'react';
+import { View, FlatList } from 'react-native';
 import style from './style';
 
-import { View, FlatList } from 'react-native';
 import ReviewItem from '../ReviewItem';
 
-const ReviewsList = ({reviewsIds, isLoadingReviews, onRefresh}) => {
+const ReviewsList = ({ reviewsIds, isLoadingReviews, onRefresh }) => {
   const keyExtractor = id => `${id}`;
 
-  const renderItem = ({item}) => {
-    return (
-      <ReviewItem reviewId={item}/>
-    );
-  };
+  const renderItem = ({ item }) => (
+    <ReviewItem reviewId={item} />
+  );
 
   return (
     <View style={style.root}>

@@ -6,6 +6,6 @@ export const ActionTypes = {
 };
 
 export const Actions = {
-  setLanguage: (language) => createAction(ActionTypes.SET_LANGUAGE, {language}),
-  setIsTouchIDAuth: isEnabled => createAction(ActionTypes.SET_IS_TOUCH_ID_AUTH, {isEnabled}),
+  setLanguage: language => createAction(ActionTypes.SET_LANGUAGE, { language }),
+  setIsTouchIDAuth: isEnabled => createAction(ActionTypes.SET_IS_TOUCH_ID_AUTH, { isEnabled }),
 };

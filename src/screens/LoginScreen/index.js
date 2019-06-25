@@ -5,10 +5,10 @@ import { Actions } from '../../redux/requests/login/AC';
 import { getIsLoading } from '../../redux/requests/login/selectors';
 import { getIsTouchIdAuth } from '../../redux/settings/selector';
 
-import touchIDService from "../../services/touchID.service";
-import navService from "../../services/nav.service";
+import touchIDService from '../../services/touchID.service';
+import navService from '../../services/nav.service';
 
-import LoginScreen from './LoginScreen'
+import LoginScreen from './LoginScreen';
 
 const mapStateToProps = state => ({
   isLoading: getIsLoading(state),
@@ -30,14 +30,13 @@ const LoginScreenContainer = (
     submitLogin,
   },
 ) => {
-
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [biometryType, setBiometryType] = useState(null);
 
   useEffect(() => {
     touchIDService.isSupported()
-      .then(biometryType => setBiometryType(biometryType))
+      .then(biometry => setBiometryType(biometry));
   }, []);
 
   const onEnterUserName = useCallback((text) => {
@@ -59,7 +58,7 @@ const LoginScreenContainer = (
     touchIDService.authenticate(
       'For sign in to application',
       () => navService.navigate(navService.ScreenRouteNames.PRODUCTS_SCREEN),
-    )
+    );
   }, []);
 
   const toRegistrationScreen = useCallback(() => {

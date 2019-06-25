@@ -1,7 +1,7 @@
 import * as fromActions from './AC';
 import * as authActions from '../auth/AC';
-import { ReviewModel } from '../../models/review.model';
-import { getNewEntitiesAfterSetData } from '../../utils/utilsForRedux';
+import ReviewModel from '../../models/review.model';
+import getNewEntitiesAfterSetData from '../../utils/utilsForRedux';
 
 export const initialState = {
   entities: {},
@@ -9,10 +9,9 @@ export const initialState = {
 };
 
 export function reviewsReducer(state = initialState, action) {
-
   switch (action.type) {
     case fromActions.ActionTypes.SET_REVIEWS_DATA: {
-      const reviewsFromAction = action.payload.data.map((review) => new ReviewModel(review));
+      const reviewsFromAction = action.payload.data.map(review => new ReviewModel(review));
       const newEntities = getNewEntitiesAfterSetData(state.entities, reviewsFromAction);
 
       return {

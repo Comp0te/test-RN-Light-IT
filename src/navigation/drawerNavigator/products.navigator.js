@@ -1,13 +1,13 @@
 import React from 'react';
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from 'react-navigation';
 import { Button } from 'react-native-material-ui';
-import ProductsScreen from "../../screens/ProductsScreen";
-import navService from "../../services/nav.service";
+import ProductsScreen from '../../screens/ProductsScreen';
+import navService from '../../services/nav.service';
 
 const ProductsNavigator = createStackNavigator({
   [navService.ScreenRouteNames.PRODUCTS_SCREEN]: {
     screen: ProductsScreen,
-    navigationOptions: ({navigation, screenProps: {t}}) => {
+    navigationOptions: ({ navigation, screenProps: { t } }) => {
       const title = navigation.getParam('title', t('Available products'));
       const onPressSave = navigation.getParam('onPressSave', null);
       const isLoadingReviews = navigation.getParam('isLoadingReviews', false);
@@ -15,14 +15,16 @@ const ProductsNavigator = createStackNavigator({
       return {
         ...navService.navigationOptions(title),
         headerRight: (
-          !!onPressSave && !isLoadingReviews &&
+          !!onPressSave && !isLoadingReviews
+          && (
           <Button
-            primary={true}
+            primary
             text={t('Save')}
             onPress={onPressSave}
           />
+          )
         ),
-      }
+      };
     },
   },
 }, {

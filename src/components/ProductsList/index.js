@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
-import style from './style';
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { View } from 'react-native';
+import style from './style';
 
 import ProductItem from '../ProductItem';
 
-const ProductsList = ({productsIds, productsEntities}) => {
+const ProductsList = ({ productsIds, productsEntities }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const productsList = productsIds.map((productId, index) => (
     <ProductItem
@@ -17,21 +17,23 @@ const ProductsList = ({productsIds, productsEntities}) => {
     />
   ));
 
-  const onChangeTab = useCallback(({i}) => {
-    setActiveTabIndex(i)
+  const onChangeTab = useCallback(({ i }) => {
+    setActiveTabIndex(i);
   }, []);
 
   return (
     <View style={style.root}>
       {
-        !!productsIds.length &&
+        !!productsIds.length
+        && (
         <ScrollableTabView
-          locked={true}
+          locked
           style={style.tabView}
           onChangeTab={onChangeTab}
         >
           {productsList}
         </ScrollableTabView>
+        )
       }
     </View>
   );

@@ -2,9 +2,9 @@ import React, { useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { Actions } from '../../redux/requests/register/AC';
 import { getIsLoading } from '../../redux/requests/register/selectors';
-import RegistrationScreen from './RegistrationScreen'
+import RegistrationScreen from './RegistrationScreen';
 
-const RegistrationScreenContainer = ({submitRegister, isLoading}) => {
+const RegistrationScreenContainer = ({ submitRegister, isLoading }) => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -28,7 +28,6 @@ const RegistrationScreenContainer = ({submitRegister, isLoading}) => {
     } else {
       setConfirmPasswordError('');
     }
-
   }, [password, confirmPassword]);
 
   const onSubmit = useCallback(() => {

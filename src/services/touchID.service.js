@@ -1,8 +1,8 @@
-import React from 'react';
-import TouchID from 'react-native-touch-id'
+import TouchID from 'react-native-touch-id';
 
 class TouchIDService {
   _biometryType;
+
   _error;
 
   async isSupported() {
@@ -12,9 +12,11 @@ class TouchIDService {
         passcodeFallback: true,
       });
 
-      return this._biometryType;
+      return this.biometryType;
     } catch (e) {
       this._error = e;
+
+      return null;
     }
   }
 

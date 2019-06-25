@@ -1,30 +1,25 @@
 import React from 'react';
-import style from './style';
 import { useTranslation } from 'react-i18next';
 
 import { View, FlatList, Text } from 'react-native';
-import SavedProductItem from '../../components/SavedProductItem';
+import style from './style';
+import SavedProductItem from '../SavedProductItem';
 
-const SavedProductsList = ({products, onRefresh, isFetchingProducts}) => {
-
-  const {t} = useTranslation();
+const SavedProductsList = ({ products, onRefresh, isFetchingProducts }) => {
+  const { t } = useTranslation();
 
   const keyExtractor = product => `${product.id}`;
 
-  const renderItem = ({item}) => {
-    return (
-      <SavedProductItem product={item}/>
-    );
-  };
+  const renderItem = ({ item }) => (
+    <SavedProductItem product={item} />
+  );
 
-  const getItemLayout = (data, index) => ({length: 78, offset: 0.3, index});
+  const getItemLayout = (data, index) => ({ length: 78, offset: 0.3, index });
 
-  const ListEmptyComponent = isVisible => {
-    return (
-      !isVisible &&
-      <Text style={style.noProductsText}>{t('No products')}</Text>
-    )
-  };
+  const ListEmptyComponent = isVisible => (
+    !isVisible
+      && <Text style={style.noProductsText}>{t('No products')}</Text>
+  );
 
   return (
     <View style={style.root}>

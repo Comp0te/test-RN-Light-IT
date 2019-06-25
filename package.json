@@ -27,7 +27,8 @@
     "realm": "^3.0.0-beta.1",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.3",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "redux-devtools-extension": "^2.13.8"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
@@ -41,8 +42,7 @@
     "eslint-plugin-react": "^7.14.2",
     "jest": "24.8.0",
     "metro-react-native-babel-preset": "0.54.1",
-    "react-test-renderer": "16.8.3",
-    "redux-devtools-extension": "^2.13.8"
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
     "preset": "react-native"

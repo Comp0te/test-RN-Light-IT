@@ -1,12 +1,14 @@
 import React from 'react';
-import style from './style';
-import { Color } from '../../Themes/colors';
 import { useTranslation } from 'react-i18next';
-import { ScreenRouteNames } from '../../utils/constants';
 
 import { Button } from 'react-native-material-ui';
-import { SafeAreaView, View, Text, Switch } from 'react-native';
-import SegmentedControlTab from "react-native-segmented-control-tab";
+import {
+  SafeAreaView, View, Text, Switch,
+} from 'react-native';
+import SegmentedControlTab from 'react-native-segmented-control-tab';
+import { ScreenRouteNames } from '../../utils/constants';
+import Color from '../../Themes/colors';
+import style from './style';
 
 const SettingsScreen = (
   {
@@ -18,8 +20,7 @@ const SettingsScreen = (
     onPressLogOut,
   },
 ) => {
-
-  const {t} = useTranslation(ScreenRouteNames.SETTINGS_SCREEN);
+  const { t } = useTranslation(ScreenRouteNames.SETTINGS_SCREEN);
 
   return (
     <SafeAreaView style={style.safeArea}>
@@ -45,11 +46,11 @@ const SettingsScreen = (
         </View>
         <View style={style.settingWrapper}>
           <Button
-            primary={true}
+            primary
             onPress={onPressLogOut}
             text={t('Log out')}
-            upperCase={true}
-            style={{text: style.logoutText}}
+            upperCase
+            style={{ text: style.logoutText }}
           />
         </View>
       </View>

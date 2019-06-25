@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Color } from '../../Themes/colors';
+import Color from '../../Themes/colors';
 
 const style = StyleSheet.create({
   safeArea: {
@@ -28,7 +28,7 @@ const style = StyleSheet.create({
   },
   logoutText: {
     fontSize: 20,
-  }
+  },
 });
 
 export default style;

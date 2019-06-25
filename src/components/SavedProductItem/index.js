@@ -1,14 +1,12 @@
 import React, { useCallback } from 'react';
-import style from './style'
-import { staticEndpoint } from "../../utils/constants";
-
 import { ListItem } from 'react-native-material-ui';
-import FastImage from "react-native-fast-image";
+import FastImage from 'react-native-fast-image';
+import style from './style';
+import { staticEndpoint } from '../../utils/constants';
 
 import navService from '../../services/nav.service';
 
-const SavedProductItem = ({product}) => {
-
+const SavedProductItem = ({ product }) => {
   const imageUri = `${staticEndpoint}${product.img}`;
 
   const LeftElement = () => (
@@ -23,18 +21,18 @@ const SavedProductItem = ({product}) => {
   );
 
   const onRightElementPress = useCallback(() => {
-    navService.navigate(navService.ScreenRouteNames.SAVED_PRODUCT_DETAIL_SCREEN, {product})
+    navService.navigate(navService.ScreenRouteNames.SAVED_PRODUCT_DETAIL_SCREEN, { product });
   }, [product]);
 
   return (
     <ListItem
-      leftElement={<LeftElement/>}
+      leftElement={<LeftElement />}
       onRightElementPress={onRightElementPress}
       centerElement={{
         primaryText: product.title,
       }}
-      rightElement='chevron-right'
-      divider={true}
+      rightElement="chevron-right"
+      divider
     />
   );
 };

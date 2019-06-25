@@ -4,17 +4,17 @@ import SavedProductsScreen from './SavedProductsScreen';
 
 import realmService from '../../services/realm.service';
 
-const SavedProductsScreenContainer = ({navigation}) => {
+const SavedProductsScreenContainer = ({ navigation }) => {
   const [products, setProducts] = useState(null);
   const [isFetchingProducts, setIsFetchingProducts] = useState(false);
 
   const fetchProductsFromRealm = useCallback(() => {
     setIsFetchingProducts(true);
     realmService.read(realmService.SchemaName.PRODUCT)
-      .then(products => {
-        setProducts(products);
+      .then((RealmProducts) => {
+        setProducts(RealmProducts);
         setIsFetchingProducts(false);
-      })
+      });
   }, []);
 
   useEffect(() => {

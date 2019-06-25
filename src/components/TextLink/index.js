@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import style from './style';
 
-export const Link = (props) => {
-  const {toScreen, text} = props;
+const TextLink = (props) => {
+  const { toScreen, text } = props;
 
   return (
     <TouchableOpacity
@@ -20,4 +20,4 @@ export const Link = (props) => {
   );
 };
 
-export default React.memo(Link);
+export default React.memo(TextLink);

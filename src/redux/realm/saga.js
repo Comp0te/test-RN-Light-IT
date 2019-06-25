@@ -1,4 +1,7 @@
-import { put, takeEvery, call, select, fork } from 'redux-saga/effects';
+import {
+  put, takeEvery, call, select, fork,
+} from 'redux-saga/effects';
+import SplashScreen from 'react-native-splash-screen';
 import * as realmAC from './AC';
 import * as authAC from '../auth/AC';
 import * as settingsAC from '../settings/AC';
@@ -9,7 +12,6 @@ import { getReviewsByProductId } from '../reviews/selectors';
 import { getUsersByProductIdAndReviews } from '../users/selectors';
 
 import realmService from '../../services/realm.service';
-import SplashScreen from 'react-native-splash-screen';
 
 export function* rehydrateStoreSaga() {
   yield call([realmService, realmService.initialize]);
@@ -17,7 +19,7 @@ export function* rehydrateStoreSaga() {
   const token = auth?.[0]?.token;
 
   if (token) {
-    yield put(authAC.Actions.setToken(auth[0].token))
+    yield put(authAC.Actions.setToken(auth[0].token));
   }
 
   const settings = yield call([realmService, realmService.read], realmService.SchemaName.SETTINGS);
@@ -35,7 +37,7 @@ export function* rehydrateStoreSaga() {
   yield call([SplashScreen, SplashScreen.hide]);
 }
 
-export function* writeTokenToRealmSaga({payload}) {
+export function* writeTokenToRealmSaga({ payload }) {
   yield call(
     [realmService, realmService.write],
     realmService.SchemaName.AUTH,
@@ -46,7 +48,7 @@ export function* writeTokenToRealmSaga({payload}) {
   );
 }
 
-export function* writeProductWithReviewsRealmSaga({payload}) {
+export function* writeProductWithReviewsRealmSaga({ payload }) {
   const product = yield select(getProductById, payload.productId);
   const reviews = yield select(getReviewsByProductId, payload.productId);
   const users = yield select(getUsersByProductIdAndReviews, payload.productId, reviews);
@@ -57,7 +59,7 @@ export function* writeProductWithReviewsRealmSaga({payload}) {
     product,
   );
 
-  for (let i = 0; i < reviews.length; i++) {
+  for (let i = 0; i < reviews.length; i += 1) {
     yield fork(
       [realmService, realmService.write],
       realmService.SchemaName.REVIEW,
@@ -65,7 +67,7 @@ export function* writeProductWithReviewsRealmSaga({payload}) {
     );
   }
 
-  for (let i = 0; i < users.length; i++) {
+  for (let i = 0; i < users.length; i += 1) {
     yield fork(
       [realmService, realmService.write],
       realmService.SchemaName.USER,
@@ -74,7 +76,7 @@ export function* writeProductWithReviewsRealmSaga({payload}) {
   }
 }
 
-export function* writeLanguageRealmSaga({payload}) {
+export function* writeLanguageRealmSaga({ payload }) {
   yield call(
     [realmService, realmService.write],
     realmService.SchemaName.SETTINGS,
@@ -85,7 +87,7 @@ export function* writeLanguageRealmSaga({payload}) {
   );
 }
 
-export function* writeIsTouchIDAuthRealmSaga({payload}) {
+export function* writeIsTouchIDAuthRealmSaga({ payload }) {
   yield call(
     [realmService, realmService.write],
     realmService.SchemaName.SETTINGS,
@@ -113,7 +115,7 @@ export function* realmRootSaga() {
   ], writeTokenToRealmSaga);
 
   yield takeEvery([
-    realmAC.ActionTypes.SAVE_PRODUCT_WITH_REVIEWS
+    realmAC.ActionTypes.SAVE_PRODUCT_WITH_REVIEWS,
   ], writeProductWithReviewsRealmSaga);
 
   yield takeEvery([

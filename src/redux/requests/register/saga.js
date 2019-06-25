@@ -2,7 +2,7 @@ import { put, call, takeEvery } from 'redux-saga/effects';
 import apiService from '../../../services/api.service';
 import { Actions, ActionTypes } from './AC';
 
-export function * registerRequestSaga({payload}) {
+export function* registerRequestSaga({ payload }) {
   try {
     const response = yield call([apiService, apiService.register], payload.data);
 
@@ -16,6 +16,6 @@ export function * registerRequestSaga({payload}) {
   }
 }
 
-export function * registerRequestRootSaga() {
+export function* registerRequestRootSaga() {
   yield takeEvery(ActionTypes.REGISTER_REQUEST, registerRequestSaga);
 }

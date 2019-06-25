@@ -8,8 +8,8 @@ import { getReviewsIdsByProductIdFromProps } from '../../redux/reviews/selectors
 import { getIsLoading } from '../../redux/requests/getAllReviews/selectors';
 
 import ProductItem from './ProductItem';
-import { requestsAC } from "../../redux/requests/AC";
-import { Actions as realmActions } from "../../redux/realm/AC";
+import { requestsAC } from '../../redux/requests/AC';
+import { Actions as realmActions } from '../../redux/realm/AC';
 
 const ProductsItemContainer = (
   {
@@ -22,9 +22,8 @@ const ProductsItemContainer = (
     navigation,
   },
 ) => {
-
   const onPressSave = useCallback(() => {
-    saveProductWithReviews(product.id)
+    saveProductWithReviews(product.id);
   }, [product]);
 
   useEffect(() => {
@@ -32,12 +31,12 @@ const ProductsItemContainer = (
       title: product.title,
       onPressSave,
       isLoadingReviews,
-    })
+    });
   }, [product, isActive, isLoadingReviews]);
 
   const fetchReviewsList = useCallback(() => {
     if (product) {
-      getAllReviews(product.id)
+      getAllReviews(product.id);
     }
   }, [product]);
 
@@ -76,4 +75,3 @@ export default compose(
   withNavigation,
   connect(mapStateToProps, mapDispatchToProps),
 )(ProductsItemContainer);
-

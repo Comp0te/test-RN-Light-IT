@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
-import { Languages } from '../../utils/constants';
 import { connect } from 'react-redux';
+import { Languages } from '../../utils/constants';
 import { Actions as authActions } from '../../redux/auth/AC';
 import { Actions as settingsActions } from '../../redux/settings/AC';
 import { getLanguage, getIsTouchIdAuth } from '../../redux/settings/selector';
-import SettingsScreen from './SettingsScreen'
+import SettingsScreen from './SettingsScreen';
 
 const SettingsScreenContainer = (
   {

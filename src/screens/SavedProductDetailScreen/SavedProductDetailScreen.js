@@ -1,11 +1,13 @@
 import React from 'react';
-import style from './style';
 
-import { SafeAreaView, View, Text, FlatList } from 'react-native';
+import {
+  SafeAreaView, View, Text, FlatList,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { staticEndpoint } from "../../utils/constants";
-import ReviewItem from "../../components/ReviewItem/ReviewItem";
-import AdBanner from "../../components/AdBanner";
+import style from './style';
+import { staticEndpoint } from '../../utils/constants';
+import ReviewItem from '../../components/ReviewItem/ReviewItem';
+import AdBanner from '../../components/AdBanner';
 
 const SavedProductDetailScreen = (
   {
@@ -15,18 +17,15 @@ const SavedProductDetailScreen = (
     fetchReviewsFromRealm,
   },
 ) => {
-
   const keyExtractor = review => `${review.id}`;
 
-  const renderItem = ({item}) => {
-    return (
-      <ReviewItem
-        username={item.user.username}
-        text={item.text}
-        rate={item.rate}
-      />
-    );
-  };
+  const renderItem = ({ item }) => (
+    <ReviewItem
+      username={item.user.username}
+      text={item.text}
+      rate={item.rate}
+    />
+  );
 
   const imageUri = `${staticEndpoint}${product.img}`;
 
@@ -55,7 +54,7 @@ const SavedProductDetailScreen = (
           maxToRenderPerBatch={2}
           style={style.wrapper}
         />
-        <AdBanner/>
+        <AdBanner />
       </View>
     </SafeAreaView>
   );

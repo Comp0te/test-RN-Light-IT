@@ -1,12 +1,14 @@
 import React from 'react';
-import style from './style';
 import { useTranslation } from 'react-i18next';
-import { ScreenRouteNames } from '../../utils/constants';
 
-import { SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform, Text } from 'react-native';
+import {
+  SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform, Text,
+} from 'react-native';
 import { TextField } from 'react-native-materialui-textfield';
-import Link from '../../components/Link'
 import { Button } from 'react-native-material-ui';
+import TextLink from '../../components/TextLink';
+import { ScreenRouteNames } from '../../utils/constants';
+import style from './style';
 
 const LoginScreen = (
   {
@@ -22,8 +24,7 @@ const LoginScreen = (
     toRegistrationScreen,
   },
 ) => {
-
-  const {t} = useTranslation(ScreenRouteNames.LOGIN_SCREEN);
+  const { t } = useTranslation(ScreenRouteNames.LOGIN_SCREEN);
 
   return (
     <SafeAreaView style={style.safeArea}>
@@ -42,32 +43,34 @@ const LoginScreen = (
               label={t('Password')}
               value={password}
               onChangeText={onEnterPassword}
-              secureTextEntry={true}
+              secureTextEntry
             />
           </View>
           <View style={style.signInWrapper}>
             <Button
-              primary={true}
-              text={t("Submit")}
+              primary
+              text={t('Submit')}
               onPress={onSubmit}
               disabled={isLoading}
             />
           </View>
           {
-            isTouchIdAuth && biometryType &&
+            isTouchIdAuth && biometryType
+            && (
             <View style={style.signInTouchIDWrapper}>
               <Button
-                primary={true}
+                primary
                 text={`Sign in with ${Platform.OS === 'android' ? 'TouchID' : biometryType}`}
                 onPress={onPressSignInWithTouchID}
               />
             </View>
+            )
           }
           <View style={style.singUpWrapper}>
             <Text style={style.text}>
               {t('Do not have an account').toUpperCase()}
             </Text>
-            <Link
+            <TextLink
               toScreen={toRegistrationScreen}
               text={t('Sign up')}
             />

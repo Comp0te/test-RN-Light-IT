@@ -1,11 +1,13 @@
 import React from 'react';
-import style from './style';
 import { useTranslation } from 'react-i18next';
-import { ScreenRouteNames } from '../../utils/constants';
 
-import { SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform } from 'react-native';
+import {
+  SafeAreaView, KeyboardAvoidingView, ScrollView, View, Platform,
+} from 'react-native';
 import { TextField } from 'react-native-materialui-textfield';
 import { Button } from 'react-native-material-ui';
+import { ScreenRouteNames } from '../../utils/constants';
+import style from './style';
 
 const RegistrationScreen = (
   {
@@ -21,8 +23,7 @@ const RegistrationScreen = (
     onSubmit,
   },
 ) => {
-
-  const {t} = useTranslation(ScreenRouteNames.REGISTRATION_SCREEN);
+  const { t } = useTranslation(ScreenRouteNames.REGISTRATION_SCREEN);
 
   return (
     <SafeAreaView style={style.safeArea}>
@@ -41,20 +42,20 @@ const RegistrationScreen = (
               label={t('Password')}
               value={password}
               onChangeText={onEnterPassword}
-              secureTextEntry={true}
+              secureTextEntry
             />
             <TextField
               label={t('Confirm Password')}
               value={confirmPassword}
               onChangeText={onEnterConfirmPassword}
-              secureTextEntry={true}
+              secureTextEntry
               onBlur={onBlurConfirmPassword}
               error={confirmPasswordError}
             />
           </View>
           <View style={style.signInWrapper}>
             <Button
-              primary={true}
+              primary
               text={t('Submit')}
               onPress={onSubmit}
               disabled={isLoading}
