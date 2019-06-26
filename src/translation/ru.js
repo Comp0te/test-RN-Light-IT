@@ -21,6 +21,9 @@ const ru = {
     'Log out': 'Выйти',
     title: 'Настройки',
   },
+  [ScreenRouteNames.CAMERA_SCREEN]: {
+    Snapshot: 'Снимок',
+  },
   components: {
     'No products': 'Вы не сохранили никаких продуктов.',
   },
@@ -33,6 +36,7 @@ const ru = {
     Save: 'Сохранить',
     'Available products': 'Доступные продукты',
     Products: 'Продукты',
+    'Photo gallery': 'Фото галерея',
   },
 };
 

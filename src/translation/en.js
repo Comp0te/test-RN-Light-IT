@@ -20,6 +20,9 @@ const en = {
     'Touch ID': 'Touch ID authorization',
     'Log out': 'Log out',
   },
+  [ScreenRouteNames.CAMERA_SCREEN]: {
+    Snapshot: 'Snapshot',
+  },
   components: {
     'No products': 'You have not saved any products.',
   },
@@ -32,6 +35,7 @@ const en = {
     Save: 'Save',
     'Available products': 'Available products',
     Products: 'Products',
+    'Photo gallery': 'Photo gallery',
   },
 };
 
