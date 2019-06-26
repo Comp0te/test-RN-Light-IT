@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 
 import { AccessToken } from 'react-native-fbsdk';
+import { GoogleSignin, statusCodes } from 'react-native-google-signin';
 import { Alert } from 'react-native';
 import { Actions } from '../../redux/requests/login/AC';
 import { getIsLoading } from '../../redux/requests/login/selectors';
@@ -55,6 +56,24 @@ const LoginScreenContainer = (
     }
   }, []);
 
+  const onPressGoogleSingIn = useCallback(async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      navService.navigate(navService.ScreenRouteNames.PRODUCTS_SCREEN);
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (f.e. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  }, []);
+
   const onEnterUserName = useCallback((text) => {
     setUserName(text);
   }, []);
@@ -94,6 +113,7 @@ const LoginScreenContainer = (
       onPressSignInWithTouchID={onPressSignInWithTouchID}
       toRegistrationScreen={toRegistrationScreen}
       onFBLoginFinished={onFBLoginFinished}
+      onPressGoogleSingIn={onPressGoogleSingIn}
     />
   );
 };

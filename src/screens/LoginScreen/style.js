@@ -22,7 +22,7 @@ const style = StyleSheet.create({
   signInWrapper: {
     width: '100%',
     height: 40,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   signInTouchIDWrapper: {
     width: '100%',
@@ -38,6 +38,11 @@ const style = StyleSheet.create({
     fontWeight: '400',
     fontSize: 11,
     color: Color.GREY,
+  },
+  googleSigninButton: {
+    width: 192,
+    height: 48,
+    marginBottom: 10,
   },
 });
 
