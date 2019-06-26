@@ -99,5 +99,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>The application needs access to the camera in order to take a photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The application needs access to the camera in order to take a photo</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The application needs access to the microphone in order to take a video</string>
 </dict>
 </plist>
