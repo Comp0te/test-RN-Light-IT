@@ -32,7 +32,6 @@ export function* authRootSaga() {
 
   yield takeEvery([
     requestsAC.register.ActionTypes.REGISTER_REQUEST_FAIL,
-    requestsAC.login.ActionTypes.LOGIN_REQUEST_FAIL,
   ], invalidTokenSaga);
 
   yield takeEvery([
