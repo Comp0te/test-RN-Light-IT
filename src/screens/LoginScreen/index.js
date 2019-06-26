@@ -5,7 +5,7 @@ import { AccessToken } from 'react-native-fbsdk';
 import { GoogleSignin, statusCodes } from 'react-native-google-signin';
 import { Alert } from 'react-native';
 import { Actions } from '../../redux/requests/login/AC';
-import { getIsLoading } from '../../redux/requests/login/selectors';
+import { getIsLoading, getErrors } from '../../redux/requests/login/selectors';
 import { getIsTouchIdAuth } from '../../redux/settings/selector';
 
 import touchIDService from '../../services/touchID.service';
@@ -16,6 +16,7 @@ import LoginScreen from './LoginScreen';
 const mapStateToProps = state => ({
   isLoading: getIsLoading(state),
   isTouchIdAuth: getIsTouchIdAuth(state),
+  error: getErrors(state),
 });
 
 const mapDispatchToProps = dispatch => (
@@ -29,6 +30,7 @@ const mapDispatchToProps = dispatch => (
 const LoginScreenContainer = (
   {
     isLoading,
+    error,
     isTouchIdAuth,
     submitLogin,
   },
@@ -114,6 +116,7 @@ const LoginScreenContainer = (
       toRegistrationScreen={toRegistrationScreen}
       onFBLoginFinished={onFBLoginFinished}
       onPressGoogleSingIn={onPressGoogleSingIn}
+      error={error}
     />
   );
 };

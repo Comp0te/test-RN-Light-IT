@@ -9,6 +9,7 @@ import { LoginButton } from 'react-native-fbsdk';
 import { TextField } from 'react-native-materialui-textfield';
 import { Button } from 'react-native-material-ui';
 import TextLink from '../../components/TextLink';
+import Toast from '../../components/Toast';
 import { ScreenRouteNames } from '../../utils/constants';
 import style from './style';
 
@@ -17,6 +18,7 @@ const LoginScreen = (
     username,
     password,
     biometryType,
+    error,
     isLoading,
     isTouchIdAuth,
     onEnterUserName,
@@ -88,6 +90,10 @@ const LoginScreen = (
           </View>
         </KeyboardAvoidingView>
       </ScrollView>
+      <Toast
+        type="error"
+        message={error}
+      />
     </SafeAreaView>
   );
 };
