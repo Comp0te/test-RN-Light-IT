@@ -6,6 +6,7 @@ import * as realmAC from './AC';
 import * as authAC from '../auth/AC';
 import * as settingsAC from '../settings/AC';
 import { requestsAC } from '../requests/AC';
+import { GoogleSignin } from 'react-native-google-signin';
 
 import { getProductById } from '../products/selectors';
 import { getReviewsByProductId } from '../reviews/selectors';
@@ -14,6 +15,7 @@ import { getUsersByProductIdAndReviews } from '../users/selectors';
 import realmService from '../../services/realm.service';
 
 export function* rehydrateStoreSaga() {
+  yield call([GoogleSignin, GoogleSignin.configure]);
   yield call([realmService, realmService.initialize]);
   const auth = yield call([realmService, realmService.read], realmService.SchemaName.AUTH);
   const token = auth?.[0]?.token;
