@@ -17,6 +17,7 @@ export const NavRouteNames = {
   PRODUCTS_NAVIGATOR: 'ProductsNavigator',
   SAVED_PRODUCTS_NAVIGATOR: 'SavedProductsNavigator',
   SETTINGS_NAVIGATOR: 'SettingsNavigator',
+  PHOTO_GALLERY_NAVIGATOR: 'PhotoGalleryNavigator',
 };
 
 export const ScreenRouteNames = {
@@ -26,4 +27,6 @@ export const ScreenRouteNames = {
   SAVED_PRODUCTS_SCREEN: 'SavedProductsScreen',
   SAVED_PRODUCT_DETAIL_SCREEN: 'SavedProductDetailScreen',
   SETTINGS_SCREEN: 'SettingsScreen',
+  CAMERA_SCREEN: 'CameraScreen',
+  PHOTO_GALLERY_SCREEN: 'PhotoGalleryScreen',
 };
