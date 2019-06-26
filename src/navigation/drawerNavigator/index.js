@@ -9,6 +9,7 @@ import navService from '../../services/nav.service';
 import ProductsNavigator from './products.navigator';
 import SavedProductsNavigator from './saved.products.navigator';
 import SettingsNavigator from './settings.navigator';
+import PhotoGalleryNavigator from './photo.gallery.navigator';
 
 const DrawerNavigator = createDrawerNavigator({
   [navService.NavRouteNames.PRODUCTS_NAVIGATOR]: {
@@ -27,6 +28,12 @@ const DrawerNavigator = createDrawerNavigator({
     screen: SettingsNavigator,
     navigationOptions: ({ screenProps: { t } }) => ({
       drawerLabel: t('Settings'),
+    }),
+  },
+  [navService.NavRouteNames.PHOTO_GALLERY_NAVIGATOR]: {
+    screen: PhotoGalleryNavigator,
+    navigationOptions: ({ screenProps: { t } }) => ({
+      drawerLabel: t('Photo gallery'),
     }),
   },
 }, {
