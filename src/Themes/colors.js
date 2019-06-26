@@ -4,6 +4,7 @@ const Color = {
   WHITE: '#FFFFFF',
   GREY: '#BEBEBE',
   ERROR: '#DF2336',
+  SUCCESS: '#12962A',
   DIVIDER: '#BCBBC1',
 };
 
