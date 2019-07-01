@@ -43,6 +43,7 @@ module.exports = {
     "no-underscore-dangle": ["error", {
       "allowAfterThis": true,
       "allowAfterSuper": true 
-    }]
+    }],
+    "class-methods-use-this": 0
   },
 };
