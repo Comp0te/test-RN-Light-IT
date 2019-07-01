@@ -10,6 +10,15 @@ const style = StyleSheet.create({
     paddingTop: 59,
     backgroundColor: Color.WHITE,
   },
+  image: {
+    alignSelf: 'center',
+    width: 80,
+    height: 80,
+    marginBottom: 10,
+  },
+  flatList: {
+    paddingHorizontal: 5,
+  },
 });
 
 export default style;
