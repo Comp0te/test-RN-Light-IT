@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Dimensions, Image, View,
+  Image, View,
 } from 'react-native';
 import style from './style';
 
@@ -14,10 +14,7 @@ const PhotoPreview = ({ uri, isOverlay }) => (
     <Image
       source={{ uri }}
       resizeMode="contain"
-      style={{
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-      }}
+      style={style.image}
     />
   </View>
 );
