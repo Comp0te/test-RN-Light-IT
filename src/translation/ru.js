@@ -23,6 +23,8 @@ const ru = {
   },
   [ScreenRouteNames.CAMERA_SCREEN]: {
     Snapshot: 'Снимок',
+    'Add to gallery': 'Добавить в галерею',
+    Delete: 'Удалить',
   },
   components: {
     'No products': 'Вы не сохранили никаких продуктов.',

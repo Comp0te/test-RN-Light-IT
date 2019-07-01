@@ -22,6 +22,8 @@ const en = {
   },
   [ScreenRouteNames.CAMERA_SCREEN]: {
     Snapshot: 'Snapshot',
+    'Add to gallery': 'Add to gallery',
+    Delete: 'Delete',
   },
   components: {
     'No products': 'You have not saved any products.',
