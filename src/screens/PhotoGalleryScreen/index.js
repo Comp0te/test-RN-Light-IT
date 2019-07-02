@@ -1,17 +1,18 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import {
-  Image, SafeAreaView, View, FlatList,
+  SafeAreaView, View, FlatList,
 } from 'react-native';
+import GalleryListItem from '../../components/GalleryListItem';
 import style from './style';
 
 import RNFSService from '../../services/rnfs.service';
 
 const PhotoGalleryScreen = ({ navigation }) => {
-  const [photoURIs, setPhotoURIs] = useState([]);
+  const [photoData, setPhotoData] = useState([]);
 
   const onWillFocus = useCallback(async () => {
-    const uris = await RNFSService.readPhotoUrisFromCameraDir();
-    setPhotoURIs(uris);
+    const data = await RNFSService.readPhotoDataFromCameraDir();
+    setPhotoData(data);
   }, []);
 
   useEffect(() => {
@@ -20,20 +21,17 @@ const PhotoGalleryScreen = ({ navigation }) => {
     return () => focusListener.remove();
   }, [onWillFocus]);
 
-  const keyExtractor = uri => `${uri}`;
+  const keyExtractor = data => `${data.path}`;
 
   const renderItem = ({ item }) => (
-    <Image
-      source={{ uri: item }}
-      style={style.image}
-    />
+    <GalleryListItem photo={item} />
   );
 
   return (
     <SafeAreaView style={style.safeArea}>
       <View style={style.root}>
         <FlatList
-          data={photoURIs}
+          data={photoData}
           keyExtractor={keyExtractor}
           renderItem={renderItem}
           initialNumToRender={10}
