@@ -8,7 +8,7 @@ class RNFSService {
     await RNFS.mkdir(this.CAMERA_DIR_PATH);
   }
 
-  async readPhotoUrisFromCameraDir() {
+  async readPhotoDataFromCameraDir() {
     const isCameraDirExist = await RNFS.exists(this.CAMERA_DIR_PATH);
 
     if (!isCameraDirExist) {
@@ -16,9 +16,10 @@ class RNFSService {
     }
 
     const RNFSData = await RNFS.readDir(this.CAMERA_DIR_PATH);
-    return RNFSData.map(
-      data => (Platform.OS === 'ios' ? data.path : `file://${data.path}`),
-    );
+
+    return Platform.OS === 'ios'
+      ? RNFSData
+      : RNFSData.map(data => ({ ...data, path: `file://${data.path}` }));
   }
 
   async deleteFile(path) {
