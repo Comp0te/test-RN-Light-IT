@@ -18,7 +18,7 @@ const GalleryListItem = ({ photo }) => {
   );
 
   const onRightElementPress = useCallback(() => {
-    navService.navigate(navService.ScreenRouteNames.SAVED_PRODUCT_DETAIL_SCREEN, { photo });
+    navService.navigate(navService.ScreenRouteNames.PHOTO_PREVIEW_SCREEN, { photo });
   }, [photo]);
 
   return (
