@@ -4,11 +4,11 @@ import {
 } from 'react-native';
 import style from './style';
 
-const PhotoPreview = ({ uri, isOverlay }) => (
+const PhotoPreview = ({ uri, isOverlay = false }) => (
   <View
     style={[
       style.root,
-      isOverlay ? style.overlay : { flex: 1 },
+      isOverlay ? style.overlay : {},
     ]}
   >
     <Image

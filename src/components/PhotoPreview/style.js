@@ -10,7 +10,7 @@ const style = StyleSheet.create({
   },
   image: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').width,
   },
 });
 
