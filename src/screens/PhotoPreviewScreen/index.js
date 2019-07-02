@@ -1,0 +1,35 @@
+import React, { useEffect, useCallback } from 'react';
+import {
+  SafeAreaView, View, Text,
+} from 'react-native';
+import PhotoPreview from '../../components/PhotoPreview';
+import style from './style';
+
+import navService from '../../services/nav.service';
+import RNFSService from '../../services/rnfs.service';
+
+const PhotoPreviewScreen = ({ navigation }) => {
+  const photo = navigation.getParam('photo');
+
+  const onPressTrash = useCallback(async () => {
+    await RNFSService.deleteFile(photo.path);
+    navService.navigate(navService.ScreenRouteNames.PHOTO_GALLERY_SCREEN);
+  }, [photo]);
+
+  useEffect(() => {
+    navigation.setParams({
+      onPressTrash,
+    });
+  }, [onPressTrash]);
+
+  return (
+    <SafeAreaView style={style.safeArea}>
+      <View style={style.root}>
+        <PhotoPreview uri={photo.path} />
+        <Text>{photo.name}</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default React.memo(PhotoPreviewScreen);
