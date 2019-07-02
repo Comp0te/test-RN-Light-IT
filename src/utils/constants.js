@@ -29,4 +29,5 @@ export const ScreenRouteNames = {
   SETTINGS_SCREEN: 'SettingsScreen',
   CAMERA_SCREEN: 'CameraScreen',
   PHOTO_GALLERY_SCREEN: 'PhotoGalleryScreen',
+  PHOTO_PREVIEW_SCREEN: 'PhotoPreviewScreen',
 };

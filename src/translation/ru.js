@@ -39,6 +39,7 @@ const ru = {
     'Available products': 'Доступные продукты',
     Products: 'Продукты',
     'Photo gallery': 'Фото галерея',
+    'Photo preview': 'Просмотр фото',
   },
 };
 

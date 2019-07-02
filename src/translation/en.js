@@ -38,6 +38,7 @@ const en = {
     'Available products': 'Available products',
     Products: 'Products',
     'Photo gallery': 'Photo gallery',
+    'Photo preview': 'Photo preview',
   },
 };
 
