@@ -38,12 +38,14 @@ const RegistrationScreen = (
               label={t('User Name')}
               value={username}
               onChangeText={onEnterUserName}
+              testID="RegisterUserName"
             />
             <TextField
               label={t('Password')}
               value={password}
               onChangeText={onEnterPassword}
               secureTextEntry
+              testID="RegisterPassword"
             />
             <TextField
               label={t('Confirm Password')}
@@ -52,6 +54,7 @@ const RegistrationScreen = (
               secureTextEntry
               onBlur={onBlurConfirmPassword}
               error={confirmPasswordError}
+              testID="RegisterPasswordConfirm"
             />
           </View>
           <View style={style.signInWrapper}>
@@ -60,6 +63,7 @@ const RegistrationScreen = (
               text={t('Submit')}
               onPress={onSubmit}
               disabled={isLoading}
+              testID="RegisterButton"
             />
           </View>
         </KeyboardAvoidingView>

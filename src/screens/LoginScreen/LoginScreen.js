@@ -45,12 +45,14 @@ const LoginScreen = (
               label={t('User Name')}
               value={username}
               onChangeText={onEnterUserName}
+              testID="loginUserName"
             />
             <TextField
               label={t('Password')}
               value={password}
               onChangeText={onEnterPassword}
               secureTextEntry
+              testID="loginPassword"
             />
           </View>
           <View style={style.signInWrapper}>
@@ -59,6 +61,7 @@ const LoginScreen = (
               text={t('Submit')}
               onPress={onSubmit}
               disabled={isLoading}
+              testID="loginButton"
             />
           </View>
           <GoogleSigninButton
@@ -71,13 +74,13 @@ const LoginScreen = (
           {
             isTouchIdAuth && biometryType
             && (
-            <View style={style.signInTouchIDWrapper}>
-              <Button
-                primary
-                text={`Sign in with ${Platform.OS === 'android' ? 'TouchID' : biometryType}`}
-                onPress={onPressSignInWithTouchID}
-              />
-            </View>
+              <View style={style.signInTouchIDWrapper}>
+                <Button
+                  primary
+                  text={`Sign in with ${Platform.OS === 'android' ? 'TouchID' : biometryType}`}
+                  onPress={onPressSignInWithTouchID}
+                />
+              </View>
             )
           }
           <View style={style.singUpWrapper}>

@@ -125,12 +125,13 @@ const LoginScreenContainer = (
 LoginScreenContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.string,
-  isTouchIdAuth: PropTypes.bool.isRequired,
+  isTouchIdAuth: PropTypes.bool,
   submitLogin: PropTypes.func.isRequired,
 };
 
 LoginScreenContainer.defaultProps = {
   error: null,
+  isTouchIdAuth: true,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreenContainer);

@@ -14,7 +14,10 @@ const ProductsScreen = (
     productsEntities,
   },
 ) => (
-  <SafeAreaView style={style.safeArea}>
+  <SafeAreaView
+    style={style.safeArea}
+    testID="productsScreen"
+  >
     <View style={style.root}>
       {
           isLoadingProducts

@@ -7,7 +7,7 @@ const en = {
     Submit: 'Submit',
     'Sign in with': 'Sign in with',
     'Do not have an account': 'Do not have an account? ',
-    'Sign up': 'SING UP',
+    'Sign up': 'SIGN UP',
   },
   [ScreenRouteNames.REGISTRATION_SCREEN]: {
     'User Name': 'User Name',

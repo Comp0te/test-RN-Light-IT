@@ -12,6 +12,7 @@ const TextLink = ({ toScreen, text }) => (
       right: 0,
       left: 0,
     }}
+    testID="textLink"
   >
     <Text style={style.text}>{text}</Text>
   </TouchableOpacity>
