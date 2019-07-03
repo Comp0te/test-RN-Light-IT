@@ -40,6 +40,7 @@
     "@babel/runtime": "7.4.5",
     "babel-eslint": "^10.0.2",
     "babel-jest": "24.8.0",
+    "detox": "^13.0.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.18.0",
@@ -51,5 +52,16 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/compoteTestRN.app",
+        "build": "xcodebuild -workspace ios/compoteTestRN.xcworkspace -scheme compoteTestRN -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      }
+    },
+    "test-runner": "jest"
   }
 }
