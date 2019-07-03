@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { TextField } from 'react-native-materialui-textfield';
 import { Button } from 'react-native-material-ui';
+import * as PropTypes from 'prop-types';
 import { ScreenRouteNames } from '../../utils/constants';
 import style from './style';
 
@@ -65,6 +66,19 @@ const RegistrationScreen = (
       </ScrollView>
     </SafeAreaView>
   );
+};
+
+RegistrationScreen.propTypes = {
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  confirmPassword: PropTypes.string.isRequired,
+  confirmPasswordError: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  onEnterUserName: PropTypes.func.isRequired,
+  onEnterPassword: PropTypes.func.isRequired,
+  onEnterConfirmPassword: PropTypes.func.isRequired,
+  onBlurConfirmPassword: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default React.memo(RegistrationScreen);

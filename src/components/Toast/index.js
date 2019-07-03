@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, Animated } from 'react-native';
+import * as PropTypes from 'prop-types';
 import style from './style';
 
 const Toast = ({ type, message }) => {
@@ -55,6 +56,15 @@ const Toast = ({ type, message }) => {
       </Text>
     </Animated.View>
   );
+};
+
+Toast.propTypes = {
+  type: PropTypes.oneOf(['error', 'success']),
+  message: PropTypes.string,
+};
+
+Toast.defaultProps = {
+  message: null,
 };
 
 export default React.memo(Toast);

@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import * as PropTypes from 'prop-types';
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { View } from 'react-native';
@@ -37,6 +38,11 @@ const ProductsList = ({ productsIds, productsEntities }) => {
       }
     </View>
   );
+};
+
+ProductsList.propTypes = {
+  productsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  productsEntities: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 export default React.memo(ProductsList);

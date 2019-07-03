@@ -2,9 +2,10 @@ import React from 'react';
 import {
   Image, View,
 } from 'react-native';
+import * as PropTypes from 'prop-types';
 import style from './style';
 
-const PhotoPreview = ({ uri, isOverlay = false }) => (
+const PhotoPreview = ({ uri, isOverlay }) => (
   <View
     style={[
       style.root,
@@ -18,5 +19,14 @@ const PhotoPreview = ({ uri, isOverlay = false }) => (
     />
   </View>
 );
+
+PhotoPreview.propTypes = {
+  uri: PropTypes.string.isRequired,
+  isOverlay: PropTypes.bool,
+};
+
+PhotoPreview.defaultProps = {
+  isOverlay: false,
+};
 
 export default React.memo(PhotoPreview);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import * as PropTypes from 'prop-types';
 import style from './style';
 
 import { staticEndpoint } from '../../utils/constants';
@@ -38,6 +39,17 @@ const ProductsItem = (
       />
     </View>
   );
+};
+
+ProductsItem.propTypes = {
+  product: PropTypes.shape({
+    img: PropTypes.string,
+    title: PropTypes.string,
+    text: PropTypes.string,
+  }).isRequired,
+  reviewsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isLoadingReviews: PropTypes.bool.isRequired,
+  fetchReviewsList: PropTypes.func.isRequired,
 };
 
 export default React.memo(ProductsItem);

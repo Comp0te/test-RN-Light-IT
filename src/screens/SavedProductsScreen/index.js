@@ -1,11 +1,12 @@
 import React, { useEffect, useCallback, useState } from 'react';
 
+import * as PropTypes from 'prop-types';
 import SavedProductsScreen from './SavedProductsScreen';
 
 import realmService from '../../services/realm.service';
 
 const SavedProductsScreenContainer = ({ navigation }) => {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [isFetchingProducts, setIsFetchingProducts] = useState(false);
 
   const fetchProductsFromRealm = useCallback(() => {
@@ -31,6 +32,12 @@ const SavedProductsScreenContainer = ({ navigation }) => {
       isFetchingProducts={isFetchingProducts}
     />
   );
+};
+
+SavedProductsScreenContainer.propTypes = {
+  navigation: PropTypes.shape({
+    addListener: PropTypes.func,
+  }).isRequired,
 };
 
 export default React.memo(SavedProductsScreenContainer);

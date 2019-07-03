@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import * as PropTypes from 'prop-types';
 
 import { View, FlatList, Text } from 'react-native';
 import style from './style';
@@ -36,6 +37,12 @@ const SavedProductsList = ({ products, onRefresh, isFetchingProducts }) => {
       />
     </View>
   );
+};
+
+SavedProductsList.propTypes = {
+  products: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+  onRefresh: PropTypes.func.isRequired,
+  isFetchingProducts: PropTypes.bool.isRequired,
 };
 
 export default React.memo(SavedProductsList);

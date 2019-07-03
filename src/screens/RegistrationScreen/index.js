@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { connect } from 'react-redux';
+import * as PropTypes from 'prop-types';
 import { Actions } from '../../redux/requests/register/AC';
 import { getIsLoading } from '../../redux/requests/register/selectors';
 import RegistrationScreen from './RegistrationScreen';
@@ -54,6 +55,11 @@ const RegistrationScreenContainer = ({ submitRegister, isLoading }) => {
       onSubmit={onSubmit}
     />
   );
+};
+
+RegistrationScreenContainer.propTypes = {
+  submitRegister: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({

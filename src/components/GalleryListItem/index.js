@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { ListItem } from 'react-native-material-ui';
 import FastImage from 'react-native-fast-image';
+import * as PropTypes from 'prop-types';
 import style from './style';
 
 import navService from '../../services/nav.service';
@@ -32,6 +33,13 @@ const GalleryListItem = ({ photo }) => {
       divider
     />
   );
+};
+
+GalleryListItem.propTypes = {
+  photo: PropTypes.shape({
+    name: PropTypes.string,
+    path: PropTypes.string,
+  }).isRequired,
 };
 
 export default React.memo(GalleryListItem);

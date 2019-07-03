@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
+import * as PropTypes from 'prop-types';
 import { Languages } from '../../utils/constants';
 import { Actions as authActions } from '../../redux/auth/AC';
 import { Actions as settingsActions } from '../../redux/settings/AC';
@@ -39,6 +40,18 @@ const SettingsScreenContainer = (
       onPressLogOut={onPressLogOut}
     />
   );
+};
+
+SettingsScreenContainer.propTypes = {
+  language: PropTypes.string.isRequired,
+  isTouchIDAuth: PropTypes.bool,
+  logout: PropTypes.func.isRequired,
+  setLanguage: PropTypes.func.isRequired,
+  setIsTouchIDAuth: PropTypes.func.isRequired,
+};
+
+SettingsScreenContainer.defaultProps = {
+  isTouchIDAuth: true,
 };
 
 const mapStateToProps = state => ({

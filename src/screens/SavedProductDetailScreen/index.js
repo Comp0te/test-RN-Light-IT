@@ -1,14 +1,13 @@
 import React, { useEffect, useCallback, useState } from 'react';
-
+import * as PropTypes from 'prop-types';
 import SavedProductDetailScreen from './SavedProductDetailScreen';
-
 import realmService from '../../services/realm.service';
 import populateReviewsWithUsers from '../../realm/populate.helpers';
 
 const SavedProductDetailScreenContainer = ({ navigation }) => {
   const product = navigation.getParam('product');
 
-  const [reviewsWithUsers, setReviewsWithUsers] = useState(null);
+  const [reviewsWithUsers, setReviewsWithUsers] = useState([]);
   const [isFetchingFromRealm, setIsFetchingFromRealm] = useState(false);
 
   const fetchReviewsFromRealm = useCallback(() => {
@@ -49,6 +48,14 @@ const SavedProductDetailScreenContainer = ({ navigation }) => {
       isFetchingFromRealm={isFetchingFromRealm}
     />
   );
+};
+
+SavedProductDetailScreenContainer.propTypes = {
+  navigation: PropTypes.shape({
+    getParam: PropTypes.func,
+    goBack: PropTypes.func,
+    setParams: PropTypes.func,
+  }).isRequired,
 };
 
 export default React.memo(SavedProductDetailScreenContainer);

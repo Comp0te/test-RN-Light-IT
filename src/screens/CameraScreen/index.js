@@ -91,4 +91,6 @@ const CameraScreen = () => {
   );
 };
 
+CameraScreen.propTypes = {};
+
 export default React.memo(CameraScreen);

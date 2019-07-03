@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
+import * as PropTypes from 'prop-types';
 import style from './style';
 
 import ProductsList from '../../components/ProductsList';
@@ -31,5 +32,11 @@ const ProductsScreen = (
     </View>
   </SafeAreaView>
 );
+
+ProductsScreen.propTypes = {
+  productsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isLoadingProducts: PropTypes.bool.isRequired,
+  productsEntities: PropTypes.objectOf(PropTypes.object).isRequired,
+};
 
 export default React.memo(ProductsScreen);

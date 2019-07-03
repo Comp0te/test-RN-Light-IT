@@ -8,6 +8,7 @@ import { GoogleSigninButton } from 'react-native-google-signin';
 import { LoginButton } from 'react-native-fbsdk';
 import { TextField } from 'react-native-materialui-textfield';
 import { Button } from 'react-native-material-ui';
+import * as PropTypes from 'prop-types';
 import TextLink from '../../components/TextLink';
 import Toast from '../../components/Toast';
 import { ScreenRouteNames } from '../../utils/constants';
@@ -96,6 +97,27 @@ const LoginScreen = (
       />
     </SafeAreaView>
   );
+};
+
+LoginScreen.propTypes = {
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  biometryType: PropTypes.string,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+  isTouchIdAuth: PropTypes.bool.isRequired,
+  onEnterUserName: PropTypes.func.isRequired,
+  onEnterPassword: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onPressSignInWithTouchID: PropTypes.func.isRequired,
+  toRegistrationScreen: PropTypes.func.isRequired,
+  onFBLoginFinished: PropTypes.func.isRequired,
+  onPressGoogleSingIn: PropTypes.func.isRequired,
+};
+
+LoginScreen.defaultProps = {
+  error: null,
+  biometryType: null,
 };
 
 export default React.memo(LoginScreen);

@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withNavigation } from 'react-navigation';
+import * as PropTypes from 'prop-types';
 
 import { getProductByIdFromProps } from '../../redux/products/selectors';
 import { getReviewsIdsByProductIdFromProps } from '../../redux/reviews/selectors';
@@ -52,6 +53,21 @@ const ProductsItemContainer = (
       fetchReviewsList={fetchReviewsList}
     />
   );
+};
+
+ProductsItemContainer.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+  }).isRequired,
+  reviewsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isLoadingReviews: PropTypes.bool.isRequired,
+  getAllReviews: PropTypes.func.isRequired,
+  saveProductWithReviews: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  navigation: PropTypes.shape({
+    setParams: PropTypes.func,
+  }).isRequired,
 };
 
 const mapStateToProps = (state, props) => ({

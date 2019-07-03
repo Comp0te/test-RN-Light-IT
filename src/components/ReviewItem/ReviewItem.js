@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { View, Text } from 'react-native';
+import * as PropTypes from 'prop-types';
 
 import { ListItem, Icon } from 'react-native-material-ui';
 import style from './style';
@@ -35,6 +36,12 @@ const ReviewsItem = ({ username, text, rate }) => {
       divider
     />
   );
+};
+
+ReviewsItem.propTypes = {
+  username: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  rate: PropTypes.number.isRequired,
 };
 
 export default React.memo(ReviewsItem);

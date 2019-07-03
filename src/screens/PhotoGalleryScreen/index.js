@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react';
 import {
   SafeAreaView, View, FlatList,
 } from 'react-native';
+import * as PropTypes from 'prop-types';
 import GalleryListItem from '../../components/GalleryListItem';
 import style from './style';
 
@@ -41,6 +42,12 @@ const PhotoGalleryScreen = ({ navigation }) => {
       </View>
     </SafeAreaView>
   );
+};
+
+PhotoGalleryScreen.propTypes = {
+  navigation: PropTypes.shape({
+    addListener: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default React.memo(PhotoGalleryScreen);

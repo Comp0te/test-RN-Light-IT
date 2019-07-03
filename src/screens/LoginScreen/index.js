@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { AccessToken } from 'react-native-fbsdk';
 import { GoogleSignin, statusCodes } from 'react-native-google-signin';
 import { Alert } from 'react-native';
+import * as PropTypes from 'prop-types';
 import { Actions } from '../../redux/requests/login/AC';
 import { getIsLoading, getErrors } from '../../redux/requests/login/selectors';
 import { getIsTouchIdAuth } from '../../redux/settings/selector';
@@ -44,8 +45,8 @@ const LoginScreenContainer = (
       .then(biometry => setBiometryType(biometry));
   }, []);
 
-  const onFBLoginFinished = useCallback((error, result) => {
-    if (error) {
+  const onFBLoginFinished = useCallback((err, result) => {
+    if (err) {
       console.log(`login has error: ${result.error}`);
     } else if (result.isCancelled) {
       console.log('login is cancelled.');
@@ -63,12 +64,12 @@ const LoginScreenContainer = (
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
       navService.navigate(navService.ScreenRouteNames.PRODUCTS_SCREEN);
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+    } catch (err) {
+      if (err.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
+      } else if (err.code === statusCodes.IN_PROGRESS) {
         // operation (f.e. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+      } else if (err.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
         // play services not available or outdated
       } else {
         // some other error happened
@@ -119,6 +120,17 @@ const LoginScreenContainer = (
       error={error}
     />
   );
+};
+
+LoginScreenContainer.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+  isTouchIdAuth: PropTypes.bool.isRequired,
+  submitLogin: PropTypes.func.isRequired,
+};
+
+LoginScreenContainer.defaultProps = {
+  error: null,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreenContainer);

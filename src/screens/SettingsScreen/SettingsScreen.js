@@ -6,6 +6,7 @@ import {
   SafeAreaView, View, Text, Switch,
 } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
+import * as PropTypes from 'prop-types';
 import { ScreenRouteNames } from '../../utils/constants';
 import Color from '../../Themes/colors';
 import style from './style';
@@ -56,6 +57,15 @@ const SettingsScreen = (
       </View>
     </SafeAreaView>
   );
+};
+
+SettingsScreen.propTypes = {
+  languagesArray: PropTypes.arrayOf(PropTypes.string).isRequired,
+  language: PropTypes.string.isRequired,
+  isTouchIDAuth: PropTypes.bool.isRequired,
+  handleLanguageChange: PropTypes.func.isRequired,
+  handleIsTouchIDAuthChange: PropTypes.func.isRequired,
+  onPressLogOut: PropTypes.func.isRequired,
 };
 
 export default React.memo(SettingsScreen);

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import * as PropTypes from 'prop-types';
 import ProductsScreen from './ProductsScreen';
 
 import { getIsLoading as getIsLoadingAllProducts } from '../../redux/requests/getAllProducts/selectors';
@@ -40,6 +41,13 @@ const ProductsScreenContainer = (
       productsEntities={productsEntities}
     />
   );
+};
+
+ProductsScreenContainer.propTypes = {
+  productsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isLoadingProducts: PropTypes.bool.isRequired,
+  getAllProducts: PropTypes.func.isRequired,
+  productsEntities: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsScreenContainer);

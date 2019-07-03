@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
+import * as PropTypes from 'prop-types';
 import style from './style';
 
 import SavedProductsList from '../../components/SavedProductsList';
@@ -15,5 +16,11 @@ const SavedProductsScreen = ({ products, fetchProductsFromRealm, isFetchingProdu
     </View>
   </SafeAreaView>
 );
+
+SavedProductsScreen.propTypes = {
+  products: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  fetchProductsFromRealm: PropTypes.func.isRequired,
+  isFetchingProducts: PropTypes.bool.isRequired,
+};
 
 export default React.memo(SavedProductsScreen);

@@ -1,9 +1,9 @@
 import React from 'react';
-
 import {
   SafeAreaView, View, Text, FlatList,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import * as PropTypes from 'prop-types';
 import style from './style';
 import { staticEndpoint } from '../../utils/constants';
 import ReviewItem from '../../components/ReviewItem/ReviewItem';
@@ -58,6 +58,24 @@ const SavedProductDetailScreen = (
       </View>
     </SafeAreaView>
   );
+};
+
+SavedProductDetailScreen.propTypes = {
+  product: PropTypes.shape({
+    img: PropTypes.string,
+    title: PropTypes.string,
+    text: PropTypes.string,
+  }).isRequired,
+  reviewsWithUsers: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    text: PropTypes.string,
+    rate: PropTypes.number,
+    user: PropTypes.shape({
+      username: PropTypes.string,
+    }),
+  })).isRequired,
+  isFetchingFromRealm: PropTypes.bool.isRequired,
+  fetchReviewsFromRealm: PropTypes.func.isRequired,
 };
 
 export default React.memo(SavedProductDetailScreen);

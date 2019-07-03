@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import {
   SafeAreaView, View, Text,
 } from 'react-native';
+import * as PropTypes from 'prop-types';
 import PhotoPreview from '../../components/PhotoPreview';
 import style from './style';
 
@@ -30,6 +31,13 @@ const PhotoPreviewScreen = ({ navigation }) => {
       </View>
     </SafeAreaView>
   );
+};
+
+PhotoPreviewScreen.propTypes = {
+  navigation: PropTypes.shape({
+    getParam: PropTypes.func,
+    setParams: PropTypes.func,
+  }).isRequired,
 };
 
 export default React.memo(PhotoPreviewScreen);

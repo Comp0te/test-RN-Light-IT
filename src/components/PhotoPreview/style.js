@@ -7,6 +7,9 @@ const style = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
     width: Dimensions.get('window').width,

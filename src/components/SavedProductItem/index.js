@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { ListItem } from 'react-native-material-ui';
 import FastImage from 'react-native-fast-image';
+import * as PropTypes from 'prop-types';
 import style from './style';
 import { staticEndpoint } from '../../utils/constants';
 
@@ -35,6 +36,13 @@ const SavedProductItem = ({ product }) => {
       divider
     />
   );
+};
+
+SavedProductItem.propTypes = {
+  product: PropTypes.shape({
+    img: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
 };
 
 export default React.memo(SavedProductItem);
