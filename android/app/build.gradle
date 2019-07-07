@@ -112,10 +112,10 @@ android {
     }
     signingConfigs {
         release {
-            keyAlias = 'key'
-            keyPassword System.getenv('123456')
-            storeFile file('/Users/vinnik/project/compotetest/android/app/keystore')
-            storePassword System.getenv('123456')
+            keyAlias System.getenv("BITRISEIO_ANDROID_KEYSTORE_ALIAS")
+            keyPassword System.getenv("BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+            storeFile file(System.getenv("HOME") + "/keystores/keystore")
+            storePassword System.getenv("BITRISEIO_ANDROID_KEYSTORE_PASSWORD")
         }
     }
     splits {
