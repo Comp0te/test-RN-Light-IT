@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Button } from 'react-native-material-ui';
+import HeaderButton from '../../components/HeaderButton';
 import ProductsScreen from '../../screens/ProductsScreen';
 import navService from '../../services/nav.service';
 
@@ -17,11 +18,10 @@ const ProductsNavigator = createStackNavigator({
         headerRight: (
           !!onPressSave && !isLoadingReviews
           && (
-          <Button
-            primary
-            text={t('Save')}
-            onPress={onPressSave}
-          />
+            <HeaderButton
+              title={t('Save')}
+              onPress={onPressSave}
+            />
           )
         ),
       };
