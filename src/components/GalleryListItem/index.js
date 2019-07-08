@@ -29,6 +29,7 @@ const GalleryListItem = ({ photo }) => {
       centerElement={{
         primaryText: photo.name,
       }}
+      style={{ primaryText: style.text }}
       rightElement="chevron-right"
       divider
     />
