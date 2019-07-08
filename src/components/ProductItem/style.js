@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Color from '../../Themes/colors';
+import { scaleWidth, scaleHeight, scaleFontSize } from '../../utils/responsiveDimensionUtil';
 
 const style = StyleSheet.create({
   root: {
@@ -10,14 +11,14 @@ const style = StyleSheet.create({
   },
   title: {
     marginBottom: 10,
-    fontSize: 16,
+    fontSize: scaleFontSize(16),
     color: Color.MAIN,
     textAlign: 'center',
   },
   image: {
     alignSelf: 'center',
-    width: 200,
-    height: 200,
+    width: scaleWidth(200),
+    height: scaleHeight(200),
   },
   placeholderStyle: {
     backgroundColor: Color.WHITE,
