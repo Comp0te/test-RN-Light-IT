@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { scaleFontSize } from '../../utils/responsiveDimensionUtil';
 
 const style = StyleSheet.create({
   stars: {
@@ -6,7 +7,7 @@ const style = StyleSheet.create({
   },
   title: {
     marginBottom: 5,
-    fontSize: 20,
+    fontSize: scaleFontSize(18),
   },
 });
 
