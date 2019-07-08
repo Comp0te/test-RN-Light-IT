@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
-import { Button } from 'react-native-material-ui';
 import React from 'react';
+import HeaderButton from '../../components/HeaderButton';
 import navService from '../../services/nav.service';
 
 import SavedProductsScreen from '../../screens/SavedProductsScreen';
@@ -22,11 +22,10 @@ const SavedProductsNavigator = createStackNavigator({
         headerRight: (
           !!onPressDelete
           && (
-          <Button
-            primary
-            text={t('Delete')}
-            onPress={onPressDelete}
-          />
+            <HeaderButton
+              title={t('Delete')}
+              onPress={onPressDelete}
+            />
           )
         ),
       };
