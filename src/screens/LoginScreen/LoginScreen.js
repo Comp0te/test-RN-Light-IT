@@ -35,7 +35,10 @@ const LoginScreen = (
 
   return (
     <SafeAreaView style={style.safeArea}>
-      <ScrollView contentContainerStyle={style.safeArea}>
+      <ScrollView
+        contentContainerStyle={style.safeArea}
+        keyboardShouldPersistTaps="handled"
+      >
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
           style={style.root}
