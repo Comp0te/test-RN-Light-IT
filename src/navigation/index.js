@@ -10,6 +10,7 @@ import { Actions as realmActions } from '../redux/realm/AC';
 
 import AuthNavigator from './auth.navigator';
 import DrawerNavigator from './drawerNavigator';
+import * as firebase from "react-native-firebase";
 
 const Navigator = createSwitchNavigator({
   [navService.NavRouteNames.AUTH_NAVIGATOR]: AuthNavigator,
@@ -24,6 +25,24 @@ const AppNavigator = ({ dispatch }) => {
   const setNavigator = (navigatorRef) => {
     navService.navigator = navigatorRef;
   };
+
+  useEffect(() => {
+    firebase.messaging().getToken()
+      .then(fcmToken => {
+        if (fcmToken) {
+          console.log('fcmToken - ', fcmToken);
+          // user has a device token
+        } else {
+          // user doesn't have a device token yet
+        }
+      });
+
+    const listener = firebase.messaging().onMessage((message) => {
+      console.log('--------------------', message);
+    });
+
+    return () => listener();
+  }, []);
 
   const { t, i18n } = useTranslation('navigation');
 
