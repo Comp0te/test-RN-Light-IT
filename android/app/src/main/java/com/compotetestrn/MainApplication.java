@@ -17,6 +17,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +48,8 @@ public class MainApplication extends Application implements ReactApplication {
             new VectorIconsPackage(),
             new FastImageViewPackage(),
             new RNGestureHandlerPackage(),
-              new RNFirebaseAdMobPackage()
+              new RNFirebaseAdMobPackage(),
+              new RNFirebaseMessagingPackage()
       );
     }
 
